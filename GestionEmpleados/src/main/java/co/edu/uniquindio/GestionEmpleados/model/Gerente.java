@@ -1,4 +1,6 @@
 package co.edu.uniquindio.GestionEmpleados.model;
 
-public class Gerente {
+public class Gerente extends Empleado {
+
+
 }

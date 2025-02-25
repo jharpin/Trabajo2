@@ -1,4 +1,4 @@
 package co.edu.uniquindio.GestionEmpleados.model;
 
-public class Tecnico {
+public class Tecnico extends Empleado {
 }
