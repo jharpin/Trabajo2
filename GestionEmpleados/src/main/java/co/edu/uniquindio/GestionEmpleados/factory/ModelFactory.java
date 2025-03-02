@@ -1,4 +1,21 @@
 package co.edu.uniquindio.GestionEmpleados.factory;
 
-public class ModelFactory {
+import co.edu.uniquindio.GestionEmpleados.services.ITecnicoCrud;
+import co.edu.uniquindio.GestionEmpleados.services.ImodelFactoryServices;
+import co.edu.uniquindio.GestionEmpleados.model.SistemaGestionEmpresa;
+import co.edu.uniquindio.GestionEmpleados.services.IDepartamentoCrud;
+
+public class ModelFactory implements ITecnicoCrud, ImodelFactoryServices, IDepartamentoCrud{
+    private static ModelFactory modelFactory;
+    private SistemaGestionEmpresa  sistemaGestionEmpresa;
+
+    private ModelFactory(){
+        inicializarDatos();
+    }
+    public static ModelFactory getInstance(){
+        if (modelFactory == null){
+            modelFactory = new ModelFactory();
+        }
+        return  modelFactory;
+    }
 }
