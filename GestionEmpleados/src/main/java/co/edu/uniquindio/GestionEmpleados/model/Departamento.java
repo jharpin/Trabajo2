@@ -1,14 +1,19 @@
 package co.edu.uniquindio.GestionEmpleados.model;
+
+import java.util.ArrayList;
+
 public class Departamento {
     private String nombreDepartamento;
     private String codigoDepartamento;
     private Proyecto proyectoAsociado;
     private Gerente gerenteAsociado;
+    private ArrayList<Tecnico> listaTecnicos;
     public Departamento(String nombreDepartamento, String codigoDepartamento, Proyecto proyectoAsociado, Gerente gerenteAsociado) {
         this.nombreDepartamento = nombreDepartamento;
         this.codigoDepartamento = codigoDepartamento;
         this.proyectoAsociado = proyectoAsociado;
         this.gerenteAsociado = gerenteAsociado;
+        this.listaTecnicos = new ArrayList<>();
     }
     public String getNombreDepartamento() {
         return nombreDepartamento;
@@ -33,5 +38,11 @@ public class Departamento {
     }
     public void setGerenteAsociado(Gerente gerenteAsociado){
         this.gerenteAsociado = gerenteAsociado;
+    }
+    public ArrayList<Tecnico> getListaTecnicos() {
+        return listaTecnicos;
+    }
+    public void setListaTecnicos(){
+        this.listaTecnicos = new ArrayList<>();
     }
 }
