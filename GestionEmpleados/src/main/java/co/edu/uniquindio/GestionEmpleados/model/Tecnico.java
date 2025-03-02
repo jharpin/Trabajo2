@@ -1,7 +1,5 @@
 package co.edu.uniquindio.GestionEmpleados.model;
-
 import java.util.ArrayList;
-
 public class Tecnico extends Empleado {
     private ArrayList<Tecnico>Tecnico=new ArrayList();
     public Tecnico(String nombreEmpleado, String idempleado, String rolEspecifico) {
