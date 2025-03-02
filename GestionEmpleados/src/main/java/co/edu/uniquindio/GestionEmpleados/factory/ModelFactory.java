@@ -5,7 +5,7 @@ import co.edu.uniquindio.GestionEmpleados.services.ImodelFactoryServices;
 import co.edu.uniquindio.GestionEmpleados.model.SistemaGestionEmpresa;
 import co.edu.uniquindio.GestionEmpleados.services.IDepartamentoCrud;
 
-public class ModelFactory implements ITecnicoCrud, ImodelFactoryServices, IDepartamentoCrud{
+public class ModelFactory {
     private static ModelFactory modelFactory;
     private SistemaGestionEmpresa  sistemaGestionEmpresa;
 
@@ -18,4 +18,8 @@ public class ModelFactory implements ITecnicoCrud, ImodelFactoryServices, IDepar
         }
         return  modelFactory;
     }
+    private void inicializarDatos() {
+    }
+
+
 }
