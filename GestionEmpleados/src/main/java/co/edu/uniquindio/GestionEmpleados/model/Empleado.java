@@ -1,9 +1,8 @@
 package co.edu.uniquindio.GestionEmpleados.model;
 public class Empleado {
-    String nombre;
-    String id;
-    Proyecto proyectoAsociado;
-    private String rolEspecifico;
+    private String nombre;
+    private String id;
+    private Proyecto proyectoAsociado;
     public Empleado (String nombre,
                      String id,
                      Proyecto proyectoAsociado) {
@@ -17,10 +16,10 @@ public class Empleado {
     public void setNombre(String nombre){
         this.nombre = nombre;
     }
-    public String getIdEmpleado(){
+    public String getId(){
         return id;
     }
-    public void setIdEmpleado(String id){
+    public void setId(String id){
         this.id = id;
     }
     public Proyecto getProyectoAsociado(){
