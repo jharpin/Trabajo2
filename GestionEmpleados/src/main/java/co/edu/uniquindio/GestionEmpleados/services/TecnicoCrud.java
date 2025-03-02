@@ -10,5 +10,4 @@ public interface TecnicoCrud {
     Proyecto nuevoProyectoAsociado, Departamento nuevoDepartamentoAsociado, String nuevaEspecialidad);
     boolean eliminarTecnico(String id);
     Tecnico obtenerTecnico(String id);
-    String obtenerDatosTecnico(String id);
 }
