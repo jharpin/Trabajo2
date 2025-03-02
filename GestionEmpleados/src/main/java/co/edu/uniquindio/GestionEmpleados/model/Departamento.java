@@ -3,10 +3,12 @@ public class Departamento {
     private String nombreDepartamento;
     private String codigoDepartamento;
     private Proyecto proyectoAsociado;
-    public Departamento(String nombreDepartamento, String codigoDepartamento, Proyecto proyectoAsociado) {
+    private Gerente gerenteAsociado;
+    public Departamento(String nombreDepartamento, String codigoDepartamento, Proyecto proyectoAsociado, Gerente gerenteAsociado) {
         this.nombreDepartamento = nombreDepartamento;
         this.codigoDepartamento = codigoDepartamento;
         this.proyectoAsociado = proyectoAsociado;
+        this.gerenteAsociado = gerenteAsociado;
     }
     public String getNombreDepartamento() {
         return nombreDepartamento;
@@ -25,5 +27,11 @@ public class Departamento {
     }
     public void setProyectoAsociado(Proyecto proyectoAsociado){
         this.proyectoAsociado = proyectoAsociado;
+    }
+    public Gerente getGerenteAsociado(){
+        return gerenteAsociado;
+    }
+    public void setGerenteAsociado(Gerente gerenteAsociado){
+        this.gerenteAsociado = gerenteAsociado;
     }
 }
