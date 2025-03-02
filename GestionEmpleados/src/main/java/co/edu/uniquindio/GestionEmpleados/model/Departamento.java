@@ -3,6 +3,7 @@ public class Departamento {
     private String nombreDepartamento;
     private String codigoDepartamento;
     private Proyecto proyectoAsociado;
+    private Gerente gerenteAsociado;
     public Departamento(String nombreDepartamento, String codigoDepartamento, Proyecto proyectoAsociado) {
         this.nombreDepartamento = nombreDepartamento;
         this.codigoDepartamento = codigoDepartamento;
@@ -25,5 +26,11 @@ public class Departamento {
     }
     public void setProyectoAsociado(Proyecto proyectoAsociado){
         this.proyectoAsociado = proyectoAsociado;
+    }
+    public Gerente getGerenteAsociado(){
+        return gerenteAsociado;
+    }
+    public void setGerenteAsociado(Gerente gerenteAsociado){
+        this.gerenteAsociado = gerenteAsociado;
     }
 }
