@@ -14,6 +14,11 @@ public class Gerente extends Empleado {
     public void setDepartamentoAsociado(Departamento departamentoAsociado) {
         this.departamentoAsociado = departamentoAsociado;
     }
+
+    @Override
+    public String contribuir(){
+        return "el gerente a contribuido con los empleados";
+    }
 }
 
 

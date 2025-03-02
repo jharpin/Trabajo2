@@ -1,5 +1,8 @@
 package co.edu.uniquindio.GestionEmpleados.model;
-public class Empleado {
+
+import co.edu.uniquindio.GestionEmpleados.services.IContribuyente;
+
+public class Empleado implements IContribuyente {
     private String nombre;
     private String id;
     private Proyecto proyectoAsociado;
@@ -27,5 +30,10 @@ public class Empleado {
     }
     public void setProyectoAsociado(Proyecto proyectoAsociado){
         this.proyectoAsociado = proyectoAsociado;
+    }
+
+    @Override
+    public String contribuir() {
+        return "el empleado ha contribuido con lo necesario";
     }
 }
