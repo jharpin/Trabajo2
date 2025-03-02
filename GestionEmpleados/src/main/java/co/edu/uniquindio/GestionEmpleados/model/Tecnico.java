@@ -14,5 +14,4 @@ public class Tecnico extends Empleado {
     public void setidempleado(String idempleado){
         this.idempleado=idempleado;
     }
-
 }
