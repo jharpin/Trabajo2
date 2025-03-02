@@ -1,11 +1,12 @@
 package co.edu.uniquindio.GestionEmpleados.model;
-
 public class Departamento {
     private String nombreDepartamento;
     private String codigoDepartamento;
-    public Departamento(String nombreDepartamento, String codigoDepartamento) {
+    private Proyecto proyectoAsociado;
+    public Departamento(String nombreDepartamento, String codigoDepartamento, Proyecto proyectoAsociado) {
         this.nombreDepartamento = nombreDepartamento;
         this.codigoDepartamento = codigoDepartamento;
+        this.proyectoAsociado = proyectoAsociado;
     }
     public String getNombreDepartamento() {
         return nombreDepartamento;
@@ -18,5 +19,11 @@ public class Departamento {
     }
     public void setCodigoDepartamento(String codigoDepartamento) {
         this.codigoDepartamento = codigoDepartamento;
+    }
+    public Proyecto getProyectoAsociado(){
+        return proyectoAsociado;
+    }
+    public void setProyectoAsociado(Proyecto proyectoAsociado){
+        this.proyectoAsociado = proyectoAsociado;
     }
 }
