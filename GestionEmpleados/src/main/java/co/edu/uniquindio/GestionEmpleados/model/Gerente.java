@@ -17,7 +17,7 @@ public class Gerente extends Empleado {
 
     @Override
     public String contribuir(){
-        return "el gerente a contribuido con los empleados";
+        return "el gerente:"+getNombre()+" a contribuido con los empleados";
     }
 }
 
