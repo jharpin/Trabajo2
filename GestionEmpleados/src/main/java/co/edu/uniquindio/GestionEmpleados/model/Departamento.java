@@ -8,6 +8,7 @@ public class Departamento {
     private Proyecto proyectoAsociado;
     private Gerente gerenteAsociado;
     private ArrayList<Tecnico> listaTecnicos;
+
     public Departamento(String nombreDepartamento, String codigoDepartamento, Proyecto proyectoAsociado, Gerente gerenteAsociado) {
         this.nombreDepartamento = nombreDepartamento;
         this.codigoDepartamento = codigoDepartamento;
@@ -15,7 +16,6 @@ public class Departamento {
         this.gerenteAsociado = gerenteAsociado;
         this.listaTecnicos = new ArrayList<>();
     }
-
     public Departamento(){
     }
     

@@ -21,66 +21,72 @@ public class ModelFactory implements IEmpleadoCrud {
         return  modelFactory;
     }
     private void inicializarDatos() {
+        sistemaGestionEmpresa= new SistemaGestionEmpresa();
+
+        Proyecto proyecto1=new Proyecto();
+        proyecto1.setNombreProyecto("matematicas");
+        proyecto1.setCodigoProyecto("1039");
+        Proyecto proyecto2=new Proyecto("castellano","2938");
+        proyecto2.setNombreProyecto("castellano");
+        proyecto2.setCodigoProyecto("2938");
+        Proyecto proyecto3=new Proyecto("ingles","3746");
+        proyecto3.setNombreProyecto("ingles");
+        proyecto3.setCodigoProyecto("3746");
+        Proyecto proyecto4=new Proyecto("calculo","6578");
+        proyecto4.setNombreProyecto("calculo");
+        proyecto4.setCodigoProyecto("6578");
+
         Departamento departamento1 = new Departamento();
-        departamento1.setNombre("Administrativo");
-        departamento1.setCodigo("2020");
+        departamento1.setNombreDepartamento("Administrativo");
+        departamento1.setCodigoDepartamento("2020");
     
         Departamento departamento2 = new Departamento();
-        departamento2.setNombre("Recursos Humanos");
-        departamento2.setCodigo("2022");
+        departamento2.setNombreDepartamento("Recursos Humanos");
+        departamento2.setCodigoDepartamento("2022");
     
         Departamento departamento3 = new Departamento();
-        departamento3.setNombre("Marketing");
-        departamento3.setCodigo("2025");
+        departamento3.setNombreDepartamento("Marketing");
+        departamento3.setCodigoDepartamento("2025");
     
         Departamento departamento4 = new Departamento();
-        departamento4.setNombre("General");
-        departamento4.setCodigo("6060");
+        departamento4.setNombreDepartamento("General");
+        departamento4.setCodigoDepartamento("6060");
     
-        SistemaGestionEmpresa.getDepartamentos().add(departamento1);
-        SistemaGestionEmpresa.getDepartamentos().add(departamento2);
-        SistemaGestionEmpresa.getDepartamentos().add(departamento3);
-        SistemaGestionEmpresa.getDepartamentos().add(departamento4);
-    
-        Empleado empleado = new Empleado();
-        empleado.setNombre("Luis");
-        empleado.setId("1010");
-        empleado.setDepartamento("Administrativo");
-        empleado.setEspecialidad("Gerencia");
+        sistemaGestionEmpresa.getDepartamentos().add(departamento1);
+        sistemaGestionEmpresa.getDepartamentos().add(departamento2);
+        sistemaGestionEmpresa.getDepartamentos().add(departamento3);
+        sistemaGestionEmpresa.getDepartamentos().add(departamento4);
     
         Empleado empleado1 = new Empleado();
         empleado1.setNombre("Fernando");
         empleado1.setId("1011");
-        empleado1.setDepartamento("General");
-        empleado1.setEspecialidad("Electricista");
+        empleado1.setProyectoAsociado(proyecto1);
     
         Empleado empleado2 = new Empleado();
         empleado2.setNombre("Luisa");
         empleado2.setId("5105");
-        empleado2.setDepartamento("General");
-        empleado2.setEspecialidad("Mantenimiento");
+        empleado2.setProyectoAsociado(proyecto2);
     
         Empleado empleado3 = new Empleado();
         empleado3.setNombre("Alexis");
         empleado3.setId("6025");
-        empleado3.setDepartamento("Administrativo");
-        empleado3.setEspecialidad("Mantenimiento");
+        empleado3.setProyectoAsociado(proyecto3);
     
         Empleado empleado4 = new Empleado();
         empleado4.setNombre("Valeria");
         empleado4.setId("6868");
-        empleado4.setDepartamento("Recursos Humanos");
-        empleado4.setEspecialidad("Archivo");
+        empleado4.setProyectoAsociado(proyecto4);
     
-        SistemaGestionEmpresa.getEmpleado().add(empleado1);
-        SistemaGestionEmpresa.getEmpleado().add(empleado2);
-        SistemaGestionEmpresa.getEmpleado().add(empleado3);
-        SistemaGestionEmpresa.getEmpleado().add(empleado4);
-        SistemaGestionEmpresa.getEmpleado().add(empleado4);
-        departamento1.getEmpleado().add(empleado1);
-        departamento2.getEmpleado().add(empleado2);
-        departamento3.getEmpleado().add(empleado3);
-        departamento4.getEmpleado().add(empleado4);
+        sistemaGestionEmpresa.getEmpleados().add(empleado1);
+        sistemaGestionEmpresa.getEmpleados().add(empleado2);
+        sistemaGestionEmpresa.getEmpleados().add(empleado3);
+        sistemaGestionEmpresa.getEmpleados().add(empleado4);
+        sistemaGestionEmpresa.getEmpleados().add(empleado4);
+
+        departamento1.setProyectoAsociado(proyecto1);
+        departamento2.setProyectoAsociado(proyecto2);
+        departamento3.setProyectoAsociado(proyecto3);
+        departamento4.setProyectoAsociado(proyecto4);
 
     }
 

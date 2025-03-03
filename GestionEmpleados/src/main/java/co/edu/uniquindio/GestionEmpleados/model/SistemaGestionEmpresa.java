@@ -17,7 +17,8 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud {
     public ArrayList<Departamento> getDepartamentos() {
         return departamentos;
     }
-    private ArrayList<Empleado> empleados;
+
+    public ArrayList<Empleado> empleados;
 
     public ArrayList<Empleado> getEmpleados() {
         return empleados;
