@@ -11,6 +11,7 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud{
     private ArrayList<Proyecto> proyectos;
 
     public SistemaGestionEmpresa() {
+        this.Empleados= new ArrayList<>();
         this.tecnicos = new ArrayList<>();
         this.gerentes = new ArrayList<>();
         this.departamentos = new ArrayList<>();
