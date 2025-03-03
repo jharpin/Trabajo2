@@ -3,7 +3,7 @@ import co.edu.uniquindio.GestionEmpleados.services.IDepartamentoCrud;
 import co.edu.uniquindio.GestionEmpleados.services.IEmpleadoCrud;
 import co.edu.uniquindio.GestionEmpleados.services.IGerenteCrud;
 import java.util.ArrayList;
-public class SistemaGestionEmpresa implements IEmpleadoCrud,IGerenteCrud, IDepartamentoCrud{
+public class SistemaGestionEmpresa implements IEmpleadoCrud{
     private ArrayList<Tecnico> tecnicos;
     private ArrayList<Gerente> gerentes;    
     private ArrayList<Departamento> departamentos;

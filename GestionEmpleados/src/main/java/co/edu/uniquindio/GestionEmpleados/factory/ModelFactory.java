@@ -10,10 +10,7 @@ public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices{
     private static ModelFactory modelFactory;
     private SistemaGestionEmpresa  sistemaGestionEmpresa;
 
-    private ModelFactory(){
-        inicializarDatos();
-
-    }
+    private ModelFactory(){inicializarDatos();}
     public static ModelFactory getInstance(){
         if (modelFactory == null){
             modelFactory = new ModelFactory();
