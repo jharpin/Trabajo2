@@ -151,8 +151,8 @@ public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices, IProye
     }
 
     @Override
-    public boolean modificarProyecto(String nombreproyecto, Departamento departamentoAsociado, Empleado empleadosAsignado) {
-        return false;
+    public boolean modificarProyecto(String codigoProyecto) {
+        return sistemaGestionEmpresa.modificarProyecto(codigoProyecto);
     }
     @Override
     public boolean eliminarProyecto(String codigoProyecto) {

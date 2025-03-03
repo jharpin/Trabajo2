@@ -106,10 +106,30 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
         return true;
     }
 
+
     @Override
-    public boolean modificarProyecto(String nombreproyecto, Departamento departamentoAsociado, Empleado empleadosAsignado) {
+    public boolean modificarProyecto( String codigoProyecto){
+        if (proyectos == null || proyectos.isEmpty()) {
+            System.out.println(" No hay proyectos registrados.");
+            return false;
+        }
+            //  Buscar el empleado por ID
+            for (Proyecto proyecto : proyectos) {
+
+                if (proyecto.getCodigoProyecto().equals(codigoProyecto)) {
+                    // Cambiar el nombre del proyecto
+                    String nombre1 = "refuerzo";
+                    proyecto.setNombreProyecto(nombre1);
+                    System.out.println("Nombre del proyecto con ID " + codigoProyecto + " cambiado a: " + nombre1);
+                    return true;
+                }
+            }
+
+        System.out.println(" No se encontró un proyecto con ID " + codigoProyecto);
         return false;
     }
+
+
     @Override
     public boolean eliminarProyecto(String codigoProyecto) {
         //  Verificar que la lista no sea null
