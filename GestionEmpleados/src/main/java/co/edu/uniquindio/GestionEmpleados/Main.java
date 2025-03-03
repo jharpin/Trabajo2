@@ -12,6 +12,8 @@ public class Main {
         modelFactory.mostrarInfoEmpresa();
         modelFactory.eliminarEmpleado("1011");
         modelFactory.crearEmpleado("vega2","450",null);
+        modelFactory.crearProyecto("software desing ","y878",null,null);
+        modelFactory.eliminarProyecto("3746");
         modelFactory.mostrarInfoEmpresa();
     }
 

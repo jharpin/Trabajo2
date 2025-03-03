@@ -2,21 +2,25 @@ package co.edu.uniquindio.GestionEmpleados.model;
 
 import co.edu.uniquindio.GestionEmpleados.services.IProyectoCrud;
 
-public class Gerente extends Empleado implements IProyectoCrud {
+public class Gerente extends Empleado {
     private Departamento departamentoAsociado;
+
     public Gerente(String nombre,
                    String id,
                    Proyecto proyectoAsociado,
                    Departamento departamentoAsociado) {
-        super(nombre, id,proyectoAsociado);
+        super(nombre, id, proyectoAsociado);
         this.departamentoAsociado = departamentoAsociado;
     }
+
     public Gerente() {
-        
+
     }
+
     public Departamento getDepartamentoAsociado() {
         return departamentoAsociado;
     }
+
     public void setDepartamentoAsociado(Departamento departamentoAsociado) {
         this.departamentoAsociado = departamentoAsociado;
     }
@@ -28,14 +32,11 @@ public class Gerente extends Empleado implements IProyectoCrud {
     }
 
     @Override
-    public String contribuir(){
-        return "el gerente:"+getNombre()+" a contribuido con los empleados";
-    }
-
-    @Override
-    public boolean modificarProyecto(String nombreproyecto) {
-        return false;
+    public String contribuir() {
+        return "el gerente:" + getNombre() + " a contribuido con los empleados";
     }
 }
+
+
 
 

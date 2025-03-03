@@ -1,11 +1,8 @@
 package co.edu.uniquindio.GestionEmpleados.model;
-import co.edu.uniquindio.GestionEmpleados.services.IDepartamentoCrud;
-import co.edu.uniquindio.GestionEmpleados.services.IEmpleadoCrud;
-import co.edu.uniquindio.GestionEmpleados.services.IGerenteCrud;
-import co.edu.uniquindio.GestionEmpleados.services.ImodelFactoryServices;
+import co.edu.uniquindio.GestionEmpleados.services.*;
 
 import java.util.ArrayList;
-public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServices {
+public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServices,IProyectoCrud {
     private ArrayList<Empleado> Empleados;
     private ArrayList<Tecnico> tecnicos;
     private ArrayList<Gerente> gerentes;
@@ -93,6 +90,46 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
         System.out.println(" No se encontró un empleado con ID " + id);
         return false;
     }
+    public boolean crearProyecto(String nombreProyecto, String codigoProyecto, Departamento departamentoAsociado, Empleado empleadosAsignado) {
+        Proyecto nuevoProyecto = new Proyecto();
+        nuevoProyecto .setNombreProyecto(nombreProyecto);
+        nuevoProyecto .setCodigoProyecto(codigoProyecto);
+        nuevoProyecto .setListaDepartamentos();
+        nuevoProyecto.setListaEmpleadosAsignados();
+
+
+        if (proyectos == null) {
+            proyectos = new ArrayList<>();
+        }
+
+        proyectos.add(nuevoProyecto);
+        return true;
+    }
+
+    @Override
+    public boolean modificarProyecto(String nombreproyecto, Departamento departamentoAsociado, Empleado empleadosAsignado) {
+        return false;
+    }
+    @Override
+    public boolean eliminarProyecto(String codigoProyecto) {
+        //  Verificar que la lista no sea null
+        if (proyectos == null || proyectos.isEmpty()) {
+            System.out.println(" No hay proyectos registrados.");
+            return false;
+        }
+
+        //  Buscar el empleado por ID
+        for (Proyecto proyecto : proyectos) {
+            if (proyecto.getCodigoProyecto().equals(codigoProyecto)) {
+                proyectos.remove(proyecto); //  Eliminar de la lista
+                System.out.println(" Proyecto con ID " + codigoProyecto + " eliminado correctamente.");
+                return true;
+            }
+        }
+
+        System.out.println(" No se encontró un proyecto con ID " + codigoProyecto);
+        return false;
+    }
 
     @Override
     public void mostrarInfoEmpresa() {
@@ -139,5 +176,8 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
         }
 
     }
+
+
+
 }
 
