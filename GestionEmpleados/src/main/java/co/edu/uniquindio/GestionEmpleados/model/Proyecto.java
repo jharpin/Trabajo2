@@ -6,9 +6,9 @@ public class Proyecto {
     private ArrayList<Empleado> ListaEmpleadosAsignados;
     private ArrayList<Departamento>ListaDepartamentos;
     public Proyecto() {}
-    public Proyecto(String nombre, String codigo) {
-        this.nombreProyecto = nombre;
-        this.codigoProyecto = codigo;
+    public Proyecto(String nombreProyecto, String codigoProyecto) {
+        this.nombreProyecto = nombreProyecto;
+        this.codigoProyecto = codigoProyecto;
         this.ListaEmpleadosAsignados = new ArrayList<>();
         this.ListaDepartamentos = new ArrayList<>();
     }
