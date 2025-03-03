@@ -79,8 +79,14 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
     @Override
     public void mostrarInfoEmpresa() {
         System.out.println("\n--- Información de la Empresa ---");
+        //mostrar proyectos
+        System.out.println("\n Proyectos: ");
+        for ( Proyecto proyecto: getProyectos()){
+            System.out.println("    Nombre: "+proyecto.getNombreProyecto()+
+                    ", codigo "+proyecto.getCodigoProyecto());
+        }
 
-        // 📌 Mostrar empleados
+        //  Mostrar empleados
         System.out.println("\n Empleados:");
         for (Empleado empleado : getEmpleados()) {
             System.out.println("   - Nombre: " + empleado.getNombre() +
@@ -88,8 +94,8 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
                     ", Proyecto: " + (empleado.getProyectoAsociado() != null ? empleado.getProyectoAsociado().getNombreProyecto() : "Sin proyecto"));
         }
 
-        // 📌 Mostrar técnicos
-        System.out.println("\n📌 Técnicos:");
+        //  Mostrar técnicos
+        System.out.println("\n Técnicos:");
         for (Tecnico tecnico : getTecnicos()) {
             System.out.println("   - Nombre: " + tecnico.getNombre() +
                     ", ID: " + tecnico.getId() +
@@ -97,8 +103,8 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
                     ", Proyecto: " + (tecnico.getProyectoAsociado() != null ? tecnico.getProyectoAsociado().getNombreProyecto() : "Sin proyecto"));
         }
 
-        // 📌 Mostrar gerentes
-        System.out.println("\n📌 Gerentes:");
+        //  Mostrar gerentes
+        System.out.println("\n Gerentes:");
         for (Gerente gerente : getGerentes()) {
             System.out.println("   - Nombre: " + gerente.getNombre() +
                     ", ID: " + gerente.getId() +
@@ -106,8 +112,8 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
                     ", Proyecto: " + (gerente.getProyectoAsociado() != null ? gerente.getProyectoAsociado().getNombreProyecto() : "Sin proyecto"));
         }
 
-        // 📌 Mostrar departamentos
-        System.out.println("\n📌 Departamentos:");
+        //  Mostrar departamentos
+        System.out.println("\n Departamentos:");
         for (Departamento departamento :getDepartamentos()) {
             System.out.println("   - Nombre: " + departamento.getNombreDepartamento() +
                     ", Código: " + departamento.getCodigoDepartamento() +

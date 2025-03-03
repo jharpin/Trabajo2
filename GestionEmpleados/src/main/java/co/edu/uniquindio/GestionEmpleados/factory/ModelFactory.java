@@ -125,6 +125,10 @@ public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices{
         sistemaGestionEmpresa.getGerentes().add(gerente2);
         sistemaGestionEmpresa.getGerentes().add(gerente3);
         sistemaGestionEmpresa.getGerentes().add(gerente4);
+        sistemaGestionEmpresa.getProyectos().add(proyecto1);
+        sistemaGestionEmpresa.getProyectos().add(proyecto2);
+        sistemaGestionEmpresa.getProyectos().add(proyecto3);
+        sistemaGestionEmpresa.getProyectos().add(proyecto4);
        
     }
 
