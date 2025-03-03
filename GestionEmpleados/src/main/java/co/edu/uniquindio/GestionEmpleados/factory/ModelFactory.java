@@ -136,40 +136,6 @@ public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices{
 
     @Override
     public void mostrarInfoEmpresa() {
-        System.out.println("\n--- Información de la Empresa ---");
-
-        // 📌 Mostrar empleados
-        System.out.println("\n📌 Empleados:");
-        for (Empleado empleado : sistemaGestionEmpresa.getEmpleados()) {
-            System.out.println("   - Nombre: " + empleado.getNombre() +
-                    ", ID: " + empleado.getId() +
-                    ", Proyecto: " + (empleado.getProyectoAsociado() != null ? empleado.getProyectoAsociado().getNombreProyecto() : "Sin proyecto"));
-        }
-
-        // 📌 Mostrar técnicos
-        System.out.println("\n📌 Técnicos:");
-        for (Tecnico tecnico : sistemaGestionEmpresa.getTecnicos()) {
-            System.out.println("   - Nombre: " + tecnico.getNombre() +
-                    ", ID: " + tecnico.getId() +
-                    ", Especialidad: " + tecnico.getEspecialidad() +
-                    ", Proyecto: " + (tecnico.getProyectoAsociado() != null ? tecnico.getProyectoAsociado().getNombreProyecto() : "Sin proyecto"));
-        }
-
-        // 📌 Mostrar gerentes
-        System.out.println("\n📌 Gerentes:");
-        for (Gerente gerente : sistemaGestionEmpresa.getGerentes()) {
-            System.out.println("   - Nombre: " + gerente.getNombre() +
-                    ", ID: " + gerente.getId() +
-                    ", Departamento: " + (gerente.getDepartamentoAsociado() != null ? gerente.getDepartamentoAsociado().getNombreDepartamento() : "Sin departamento") +
-                    ", Proyecto: " + (gerente.getProyectoAsociado() != null ? gerente.getProyectoAsociado().getNombreProyecto() : "Sin proyecto"));
-        }
-
-        // 📌 Mostrar departamentos
-        System.out.println("\n📌 Departamentos:");
-        for (Departamento departamento : sistemaGestionEmpresa.getDepartamentos()) {
-            System.out.println("   - Nombre: " + departamento.getNombreDepartamento() +
-                    ", Código: " + departamento.getCodigoDepartamento() +
-                    ", Proyecto Asociado: " + (departamento.getProyectoAsociado() != null ? departamento.getProyectoAsociado().getNombreProyecto() : "Ninguno"));
-        }
+        sistemaGestionEmpresa.mostrarInfoEmpresa();
     }
 }
