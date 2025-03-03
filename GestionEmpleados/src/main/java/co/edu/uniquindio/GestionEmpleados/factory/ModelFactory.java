@@ -19,7 +19,6 @@ public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices{
     }
     private void inicializarDatos() {
         sistemaGestionEmpresa= new SistemaGestionEmpresa();
-
         Proyecto proyecto1=new Proyecto();
         proyecto1.setNombreProyecto("Expansion");
         proyecto1.setCodigoProyecto("1039");
@@ -104,14 +103,14 @@ public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices{
         gerente4.setId("6868");
         gerente4.setProyectoAsociado(proyecto4);
         gerente4.setDepartamentoAsociado(departamento4);
-        sistemaGestionEmpresa.getDepartamentos().add(departamento1);
-        sistemaGestionEmpresa.getDepartamentos().add(departamento2);
-        sistemaGestionEmpresa.getDepartamentos().add(departamento3);
-        sistemaGestionEmpresa.getDepartamentos().add(departamento4);
         departamento1.setProyectoAsociado(proyecto1);
         departamento2.setProyectoAsociado(proyecto2);
         departamento3.setProyectoAsociado(proyecto3);
         departamento4.setProyectoAsociado(proyecto4);
+        sistemaGestionEmpresa.getDepartamentos().add(departamento1);
+        sistemaGestionEmpresa.getDepartamentos().add(departamento2);
+        sistemaGestionEmpresa.getDepartamentos().add(departamento3);
+        sistemaGestionEmpresa.getDepartamentos().add(departamento4);
         sistemaGestionEmpresa.getEmpleados().add(empleado1);
         sistemaGestionEmpresa.getEmpleados().add(empleado2);
         sistemaGestionEmpresa.getEmpleados().add(empleado3);
@@ -135,7 +134,8 @@ public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices{
     }
 
     @Override
-    public void mostrarInfoSistema() {
-
+    public void mostrarInfoEmpresa() {
+        System.out.println(sistemaGestionEmpresa.getEmpleados());
     }
+
 }
