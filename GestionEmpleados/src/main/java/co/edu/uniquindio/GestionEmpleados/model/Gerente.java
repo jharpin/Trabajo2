@@ -8,6 +8,9 @@ public class Gerente extends Empleado {
         super(nombre, id,proyectoAsociado);
         this.departamentoAsociado = departamentoAsociado;
     }
+    public Gerente() {
+        
+    }
     public Departamento getDepartamentoAsociado() {
         return departamentoAsociado;
     }

@@ -36,7 +36,6 @@ public class Proyecto {
     public void setListaDepartamentos(){
         this.ListaDepartamentos = new ArrayList<>();
     }
-
     public String toString(){
         return "proyecto= "+nombreProyecto+", codigoProyecto= "+codigoProyecto;
     }
