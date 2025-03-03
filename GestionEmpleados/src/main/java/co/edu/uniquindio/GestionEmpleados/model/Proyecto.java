@@ -5,6 +5,7 @@ public class Proyecto {
     private String codigoProyecto;
     private ArrayList<Empleado> ListaEmpleadosAsignados;
     private ArrayList<Departamento>ListaDepartamentos;
+    public Proyecto() {}
     public Proyecto(String nombre, String codigo) {
         this.nombreProyecto = nombre;
         this.codigoProyecto = codigo;
@@ -34,5 +35,9 @@ public class Proyecto {
     }
     public void setListaDepartamentos(){
         this.ListaDepartamentos = new ArrayList<>();
+    }
+
+    public String toString(){
+        return "proyecto= "+nombreProyecto+", codigoProyecto= "+codigoProyecto;
     }
 }

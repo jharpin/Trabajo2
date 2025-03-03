@@ -22,7 +22,9 @@ public class ModelFactory implements IEmpleadoCrud {
     }
     private void inicializarDatos() {
     sistemaGestionEmpresa= new SistemaGestionEmpresa();
-    Proyecto proyecto1=new Proyecto("quindio","1");
+    Proyecto proyecto1=new Proyecto();
+    proyecto1.setNombreProyecto("Proyecto 1");
+
     Empleado empleado1= new Empleado("jean","1234",proyecto1);
     Departamento departamento1=new Departamento("quindio","1",proyecto1,null);
     Gerente gerente1=new Gerente("pedro","456",proyecto1,departamento1);
