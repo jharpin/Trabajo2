@@ -6,7 +6,7 @@ import co.edu.uniquindio.GestionEmpleados.services.ITecnicoCrud;
 import co.edu.uniquindio.GestionEmpleados.services.ImodelFactoryServices;
 import co.edu.uniquindio.GestionEmpleados.services.IDepartamentoCrud;
 
-public class ModelFactory implements IEmpleadoCrud {
+public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices{
     private static ModelFactory modelFactory;
     private SistemaGestionEmpresa  sistemaGestionEmpresa;
 
@@ -81,7 +81,7 @@ public class ModelFactory implements IEmpleadoCrud {
         sistemaGestionEmpresa.getEmpleados().add(empleado2);
         sistemaGestionEmpresa.getEmpleados().add(empleado3);
         sistemaGestionEmpresa.getEmpleados().add(empleado4);
-        sistemaGestionEmpresa.getEmpleados().add(empleado4);
+
 
         departamento1.setProyectoAsociado(proyecto1);
         departamento2.setProyectoAsociado(proyecto2);
@@ -94,5 +94,10 @@ public class ModelFactory implements IEmpleadoCrud {
     @Override
     public boolean crearEmpleado(String nombre, String id, Proyecto proyectoAsociado) {
         return sistemaGestionEmpresa.crearEmpleado(nombre,id,proyectoAsociado);
+    }
+
+    @Override
+    public void mostrarInfoSistema() {
+
     }
 }
