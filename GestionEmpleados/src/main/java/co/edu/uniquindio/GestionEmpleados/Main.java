@@ -9,6 +9,7 @@ public class Main {
     public static void main(String[] args) {
         ModelFactory modelFactory=ModelFactory.getInstance();
         crudEmpleado(modelFactory);
+        modelFactory.mostrarInfoEmpresa();
     }
 
 
@@ -23,4 +24,5 @@ public class Main {
 
         modelFactory.crearEmpleado("juan","98798",null);
     }
+
 }
