@@ -14,9 +14,16 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud {
         this.departamentos = new ArrayList<>();
         this.proyectos = new ArrayList<>();
     }
+    public ArrayList<Departamento> getDepartamentos() {
+        return departamentos;
+    }
+    private ArrayList<Empleado> empleados;
 
+    public ArrayList<Empleado> getEmpleados() {
+        return empleados;
+    }
     @Override
     public boolean crearEmpleado(String nombre, String id, Proyecto proyectoAsociado) {
         return false;
     }
-}
+}   

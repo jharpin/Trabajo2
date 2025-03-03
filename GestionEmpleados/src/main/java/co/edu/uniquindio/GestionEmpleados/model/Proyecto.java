@@ -11,6 +11,8 @@ public class Proyecto {
         this.ListaEmpleadosAsignados = new ArrayList<>();
         this.ListaDepartamentos = new ArrayList<>();
     }
+    public Proyecto (){
+    }
     public String getNombreProyecto() {
         return nombreProyecto;
     }

@@ -13,6 +13,8 @@ public class Empleado implements IContribuyente {
         this.id = id;
         this.proyectoAsociado = proyectoAsociado;
     }
+    public Empleado(){
+    }
     public String getNombre(){
         return nombre;
     }

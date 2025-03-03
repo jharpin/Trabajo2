@@ -15,6 +15,10 @@ public class Departamento {
         this.gerenteAsociado = gerenteAsociado;
         this.listaTecnicos = new ArrayList<>();
     }
+
+    public Departamento(){
+    }
+    
     public String getNombreDepartamento() {
         return nombreDepartamento;
     }

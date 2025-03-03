@@ -7,6 +7,8 @@ public class Tecnico extends Empleado {
         this.departamentoAsociado = departamentoAsociado;
         this.especialidad = especialidad;
     }
+    public Tecnico(){
+    }
     public Tecnico(String nombre, String id,Proyecto proyectoAsociado,Departamento departamentoAsociado) {
         super(nombre, id,proyectoAsociado);
         this.departamentoAsociado = departamentoAsociado;
