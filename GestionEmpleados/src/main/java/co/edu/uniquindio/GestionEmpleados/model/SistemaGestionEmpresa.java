@@ -66,14 +66,32 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
         nuevoEmpleado.setNombre(nombre);
         nuevoEmpleado.setId(id);
         nuevoEmpleado.setProyectoAsociado(proyectoAsociado);
-
-
         if (Empleados == null) {
             Empleados = new ArrayList<>();
         }
-
         Empleados.add(nuevoEmpleado);
         return true;
+    }
+
+    @Override
+    public boolean eliminarEmpleado(String id) {
+        //  Verificar que la lista no sea null
+        if (Empleados == null || Empleados.isEmpty()) {
+            System.out.println(" No hay empleados registrados.");
+            return false;
+        }
+
+        //  Buscar el empleado por ID
+        for (Empleado empleado : Empleados) {
+            if (empleado.getId().equals(id)) {
+                Empleados.remove(empleado); //  Eliminar de la lista
+                System.out.println(" Empleado con ID " + id + " eliminado correctamente.");
+                return true;
+            }
+        }
+
+        System.out.println(" No se encontró un empleado con ID " + id);
+        return false;
     }
 
     @Override

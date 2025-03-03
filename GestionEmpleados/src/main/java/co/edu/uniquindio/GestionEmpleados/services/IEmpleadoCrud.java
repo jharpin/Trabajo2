@@ -3,4 +3,5 @@ import co.edu.uniquindio.GestionEmpleados.model.Proyecto;
 
 public interface IEmpleadoCrud {
    boolean crearEmpleado(String nombre, String id, Proyecto proyectoAsociado);
+   boolean eliminarEmpleado(String id);
 }

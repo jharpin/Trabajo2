@@ -139,6 +139,11 @@ public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices{
     }
 
     @Override
+    public boolean eliminarEmpleado(String id) {
+        return sistemaGestionEmpresa.eliminarEmpleado(id);
+    }
+
+    @Override
     public void mostrarInfoEmpresa() {
         sistemaGestionEmpresa.mostrarInfoEmpresa();
     }
