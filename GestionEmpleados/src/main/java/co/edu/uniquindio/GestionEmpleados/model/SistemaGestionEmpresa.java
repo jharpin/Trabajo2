@@ -16,7 +16,7 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud {
     }
 
     @Override
-    public boolean crearEmpleado(Empleado empleado) {
+    public boolean crearEmpleado(String nombre, String id, Proyecto proyectoAsociado) {
         return false;
     }
 }
