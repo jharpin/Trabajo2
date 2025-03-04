@@ -218,8 +218,18 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
         }
         return false;
     }
-
-
+    @Override
+    public boolean actualizarGerente(String nombre, String id, Proyecto proyectoAsociado, Departamento departamentoAsociado) {
+        Gerente gerente = obtenerGerente(id);
+        if (gerente != null) {
+            gerente.setId(id);
+            gerente.setNombre(nombre);
+            gerente.setProyectoAsociado(proyectoAsociado);
+            gerente.setDepartamentoAsociado(departamentoAsociado);
+            return true;
+        }
+        return false;
+    }
     @Override
     public boolean eliminarGerente(String id) {
         return gerentes.removeIf(gerente -> gerente.getId().equals(id));
