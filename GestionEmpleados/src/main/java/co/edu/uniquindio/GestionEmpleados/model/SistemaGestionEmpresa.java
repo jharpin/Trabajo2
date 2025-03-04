@@ -2,7 +2,7 @@ package co.edu.uniquindio.GestionEmpleados.model;
 import co.edu.uniquindio.GestionEmpleados.services.*;
 
 import java.util.ArrayList;
-public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServices,IProyectoCrud,IGerenteCrud, ITecnicoCrud,IDepartamentoCrud{
+public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServices,IProyectoCrud,IGerenteCrud, ITecnicoCrud,IDepartamentoCrud {
     private ArrayList<Empleado> Empleados;
     private ArrayList<Tecnico> tecnicos;
     private ArrayList<Gerente> gerentes;
@@ -91,12 +91,12 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
 
     @Override
     public Empleado obtenerEmpleado(String id) {
-            for (Empleado empleado : Empleados) {
-                if (empleado.getId().equals(id)) {
-                    return empleado;
-                }
+        for (Empleado empleado : Empleados) {
+            if (empleado.getId().equals(id)) {
+                return empleado;
             }
-            return null;
+        }
+        return null;
     }
 
     /// CRUD Proyecto
@@ -112,8 +112,9 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
         proyectos.add(nuevoProyecto);
         return true;
     }
+
     @Override
-    public boolean modificarProyecto(String nombreProyecto,String codigoProyecto,Empleado listaEmpleados,Departamento listaDepartamento) {
+    public boolean modificarProyecto(String nombreProyecto, String codigoProyecto, Empleado listaEmpleados, Departamento listaDepartamento) {
         Proyecto nuevoProyecto = obtenerProyecto(codigoProyecto);
         if (nuevoProyecto != null) {
             nuevoProyecto.setNombreProyecto(nombreProyecto);
@@ -124,6 +125,7 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
         }
         return false;
     }
+
     @Override
     public boolean eliminarProyecto(String codigoProyecto) {
         return proyectos.removeIf(proyecto -> proyecto.getCodigoProyecto().equals(codigoProyecto));
@@ -131,7 +133,7 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
 
     @Override
     public Proyecto obtenerProyecto(String codigoProyecto) {
-        for(Proyecto proyecto : proyectos) {
+        for (Proyecto proyecto : proyectos) {
             if (proyecto.getCodigoProyecto().equals(codigoProyecto)) {
                 return proyecto;
             }
@@ -150,6 +152,7 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
         }
         return false;
     }
+
     /// CRUD Gerente
     @Override
     public boolean crearGerente(String nombre, String id, Proyecto proyectoAsociado, Departamento departamentoAsociado) {
@@ -161,6 +164,7 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
         }
         return false;
     }
+
     @Override
     public boolean actualizarGerente(String nombre, String id, Proyecto proyectoAsociado, Departamento departamentoAsociado) {
         Gerente gerente = obtenerGerente(id);
@@ -173,10 +177,12 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
         }
         return false;
     }
+
     @Override
     public boolean eliminarGerente(String id) {
         return gerentes.removeIf(gerente -> gerente.getId().equals(id));
     }
+
     @Override
     public Gerente obtenerGerente(String id) {
         for (Gerente gerente : gerentes) {
@@ -186,6 +192,7 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
         }
         return null;
     }
+
     @Override
     public boolean crearTecnico(String nombre, String id, Proyecto proyectoAsociado, Departamento departamentoAsociado, String especialidad) {
         Tecnico tecnicoExistente = obtenerTecnico(id);
@@ -196,6 +203,7 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
         }
         return false;
     }
+
     @Override
     public boolean actualizarTecnico(String nombre, String id, Proyecto proyectoAsociado, Departamento departamentoAsociado, String especialidad) {
         Tecnico tecnico = obtenerTecnico(id);
@@ -209,10 +217,12 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
         }
         return false;
     }
+
     @Override
     public boolean eliminarTecnico(String id) {
         return tecnicos.removeIf(tecnico -> tecnico.getId().equals(id));
     }
+
     @Override
     public Tecnico obtenerTecnico(String id) {
         for (Tecnico tecnico : tecnicos) {
@@ -222,6 +232,7 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
         }
         return null;
     }
+
     @Override
     public boolean crearDepartamento(String nombreDepartamento, String codigoDepartamento, Gerente gerenteAsociado, Proyecto proyectoAsociado, Tecnico listaTecnico) {
         Departamento nuevoDepartamento = new Departamento();
@@ -232,15 +243,16 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
         nuevoDepartamento.setListaTecnicos(listaTecnico);
         nuevoDepartamento.setProyectoAsociado(proyectoAsociado);
         ///nuevoDepartamento.setGerenteAsociado();
-        if (departamentos== null) {
+        if (departamentos == null) {
             departamentos = new ArrayList<>();
         }
         departamentos.add(nuevoDepartamento);
         return true;
     }
+
     @Override
-    public boolean actualizarDepartamento(String nombreDepartamento, String codigoDepartamento,Gerente gerenteAsociado,Proyecto proyectoAsociado,Tecnico listaTecnicos) {
-        Departamento departamento=ObtenerDepartamento(codigoDepartamento);
+    public boolean actualizarDepartamento(String nombreDepartamento, String codigoDepartamento, Gerente gerenteAsociado, Proyecto proyectoAsociado, Tecnico listaTecnicos) {
+        Departamento departamento = ObtenerDepartamento(codigoDepartamento);
         if (departamento != null) {
             departamento.setNombreDepartamento(nombreDepartamento);
             departamento.setCodigoDepartamento(codigoDepartamento);
@@ -255,7 +267,7 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
     @Override
     public Departamento ObtenerDepartamento(String codigoDepartamento) {
         for (Departamento departamento : departamentos) {
-            if(departamento.getCodigoDepartamento().equals(codigoDepartamento)) {
+            if (departamento.getCodigoDepartamento().equals(codigoDepartamento)) {
                 return departamento;
             }
         }
@@ -278,7 +290,8 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
             }
         }
         System.out.println(" No se encontró un Departamento con ID " + codigoDepartamento);
-        return false;}
+        return false;
+    }
 
     /// Mostrar informacion empresa
     @Override
@@ -326,6 +339,8 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
         }
 
     }
+
+    @Override
     public boolean listarGerentesYProyectos() {
         if (gerentes.isEmpty()) {
             System.out.println("No hay gerentes registrados.");
@@ -339,7 +354,20 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
                     ? gerente.getProyectoAsociado().getNombreProyecto()
                     : "Sin proyecto asignado";
             /// este seria el else: muestra el proyecto
-            System.out.println("Gerente: " + nombre + " (ID: " + id+ "), Proyecto: " + nombreProyecto);
+            System.out.println("Gerente: " + nombre + " (ID: " + id + "), Proyecto: " + nombreProyecto);
+        }
+        return false;
+    }
+
+    @Override
+    public boolean tecnicoPerteneceProyecto(String idTecnico) {
+        for (Tecnico tecnico : tecnicos) {
+            if (tecnico.getId().equals(idTecnico) && tecnico.getProyectoAsociado() != null) {
+                tecnico.getNombre();
+                System.out.println("El técnico " + getTecnicos().get(0).getNombre() + " se encuentra registrado en el proyecto." + proyectos.get(0).getNombreProyecto());
+                return true;
+            }
+
         }
         return false;
     }

@@ -40,6 +40,7 @@ public class Main {
         modelFactory.mostrarInfoEmpresa();
         ///ejercicio propio2
         modelFactory.listarGerentesYProyectos();
+        modelFactory.tecnicoPerteneceProyecto("5105");
     }
     }
 
