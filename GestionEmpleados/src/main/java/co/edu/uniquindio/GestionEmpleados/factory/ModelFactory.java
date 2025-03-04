@@ -146,6 +146,11 @@ public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices, IProye
     }
 
     @Override
+    public boolean agregarProyectoAsociadaGerente(String id) {
+        return sistemaGestionEmpresa.agregarProyectoAsociadaGerente(id);
+    }
+
+    @Override
     public boolean crearProyecto(String nombreProyecto, String codigoProyecto, Departamento departamentoAsociado, Empleado empleadosAsignado) {
         return sistemaGestionEmpresa.crearProyecto(nombreProyecto,codigoProyecto,departamentoAsociado,empleadosAsignado);
     }
@@ -164,10 +169,10 @@ public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices, IProye
         return sistemaGestionEmpresa.crearGerente(nombre, id, proyectoAsociado, departamentoAsociado);
     }
     @Override
-    public boolean actualizarGerente(String id, String nombre, Proyecto proyectoAsociado, 
-                                 Departamento departamentoAsociado, String idNuevo) {
-        return sistemaGestionEmpresa.actualizarGerente(id, nombre, proyectoAsociado, 
-                                                   departamentoAsociado, idNuevo);
+    public boolean actualizarGerente( String nombre,String id, Proyecto proyectoAsociado,
+                                 Departamento departamentoAsociado) {
+        return sistemaGestionEmpresa.actualizarGerente( nombre,id, proyectoAsociado,
+                                                   departamentoAsociado);
     }
 
     @Override

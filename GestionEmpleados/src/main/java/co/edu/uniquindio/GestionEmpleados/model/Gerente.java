@@ -5,6 +5,7 @@ import co.edu.uniquindio.GestionEmpleados.services.IProyectoCrud;
 public class Gerente extends Empleado {
     private Departamento departamentoAsociado;
 
+    public Gerente() {}
     public Gerente(String nombre,
                    String id,
                    Proyecto proyectoAsociado,
@@ -12,20 +13,12 @@ public class Gerente extends Empleado {
         super(nombre, id, proyectoAsociado);
         this.departamentoAsociado = departamentoAsociado;
     }
-
-    public Gerente() {
-
-    }
-
     public Departamento getDepartamentoAsociado() {
         return departamentoAsociado;
     }
-
     public void setDepartamentoAsociado(Departamento departamentoAsociado) {
         this.departamentoAsociado = departamentoAsociado;
     }
-
-    @Override
     public void setProyectoAsociado(Proyecto proyectoAsociado) {
         super.setProyectoAsociado(proyectoAsociado);
 

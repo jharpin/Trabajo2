@@ -196,6 +196,18 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
         }
 
     }
+
+    @Override
+    public boolean agregarProyectoAsociadaGerente(String id) {
+        Proyecto proyectoAsociado = new Proyecto("manzana","abc");
+        for(Gerente gerente: getGerentes()){
+            if(gerente.getId().equals(id)){
+                gerente.setProyectoAsociado(proyectoAsociado);
+            }
+        }
+        return false;
+    }
+
     @Override
     public boolean crearGerente(String nombre, String id, Proyecto proyectoAsociado, Departamento departamentoAsociado) {
         Gerente gerenteExistente = obtenerGerente(id);
@@ -208,7 +220,7 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
     }
 
     @Override
-    public boolean actualizarGerente(String nombre, String id, Proyecto proyectoAsociado, Departamento departamentoAsociado, String idNuevo) {
+    public boolean actualizarGerente(String nombre, String id, Proyecto proyectoAsociado, Departamento departamentoAsociado) {
         Gerente gerente = obtenerGerente(id);
         if (gerente != null) {
             gerente.setId(id);

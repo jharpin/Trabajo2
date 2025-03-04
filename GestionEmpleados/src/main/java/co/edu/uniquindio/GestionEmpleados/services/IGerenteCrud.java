@@ -7,7 +7,7 @@ public interface IGerenteCrud {
     boolean crearGerente(String nombre, String id, 
     Proyecto proyectoAsociado,Departamento departamentoAsociado);
     boolean actualizarGerente(String nombre, String id, Proyecto proyectoAsociado,
-     Departamento departamentoAsociado, String idNuevo);
+     Departamento departamentoAsociado);
     boolean eliminarGerente(String id);
     Gerente obtenerGerente(String id);
 }
