@@ -20,6 +20,8 @@ public class Main {
         modelFactory.crearGerente("manu", "mnñ", null, null);
         modelFactory.eliminarGerente("6025");
         modelFactory.obtenerGerente("mnñ");
+        modelFactory.actualizarGerente("sans","6868",null,null);
+        modelFactory.agregarProyectoAsociadaGerente("mnñ");
 
 
         modelFactory.crearTecnico("Franco", "456", null, null, null);
