@@ -9,20 +9,24 @@ public class Main {
     public static void main(String[] args) {
         ModelFactory modelFactory = ModelFactory.getInstance();
         modelFactory.crearProyecto("software desing ","y878",null,null);
+
         modelFactory.mostrarInfoEmpresa();
+
         modelFactory.eliminarEmpleado("1011");
         modelFactory.crearEmpleado("vega2","450",null);
         modelFactory.eliminarProyecto("3746");
         modelFactory.modificarProyecto("y878");
-        modelFactory.mostrarInfoEmpresa();
-        modelFactory.crearGerente(null, null, null, null);
-        modelFactory.actualizarGerente(null, null, null, null, null);
-        modelFactory.eliminarGerente(null);
-        modelFactory.obtenerGerente(null);
+
+        modelFactory.crearGerente("manu", "mnñ", null, null);
+        modelFactory.eliminarGerente("6025");
+        modelFactory.obtenerGerente("mnñ");
+
+
         modelFactory.crearTecnico("Franco", "456", null, null, null);
-        modelFactory.actualizarTecnico("Romario", "422", null, null, null);
+        modelFactory.actualizarTecnico("Romario", "422", null, null, "carpintero");
         modelFactory.eliminarTecnico("456");
         modelFactory.obtenerTecnico("456");
+        modelFactory.mostrarInfoEmpresa();
     }
 
 

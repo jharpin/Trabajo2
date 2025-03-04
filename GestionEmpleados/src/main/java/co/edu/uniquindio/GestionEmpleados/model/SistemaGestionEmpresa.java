@@ -81,7 +81,7 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
         //  Buscar el empleado por ID
         for (Empleado empleado : Empleados) {
             if (empleado.getId().equals(id)) {
-                Empleados.remove(empleado); //  Eliminar de la lista
+                Empleados.remove(empleado);
                 System.out.println(" Empleado con ID " + id + " eliminado correctamente.");
                 return true;
             }
@@ -219,23 +219,13 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
         return false;
     }
 
-    @Override
-    public boolean actualizarGerente(String nombre, String id, Proyecto proyectoAsociado, Departamento departamentoAsociado) {
-        Gerente gerente = obtenerGerente(id);
-        if (gerente != null) {
-            gerente.setId(id);
-            gerente.setNombre(nombre);
-            gerente.setProyectoAsociado(proyectoAsociado);
-            gerente.setDepartamentoAsociado(departamentoAsociado);
-            return true;
-        }
-        return false;
-    }
 
     @Override
     public boolean eliminarGerente(String id) {
         return gerentes.removeIf(gerente -> gerente.getId().equals(id));
     }
+
+
     @Override
     public Gerente obtenerGerente(String id) {
         for (Gerente gerente : gerentes) {
@@ -245,6 +235,7 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
         }
         return null;
     }
+
     @Override
     public boolean crearTecnico(String nombre, String id, Proyecto proyectoAsociado, Departamento departamentoAsociado, String especialidad) {
         Tecnico tecnicoExistente = obtenerTecnico(id);
