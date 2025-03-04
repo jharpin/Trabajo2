@@ -7,7 +7,7 @@ import co.edu.uniquindio.GestionEmpleados.services.ImodelFactoryServices;
 
 public class Main {
     public static void main(String[] args) {
-        ModelFactory modelFactory = ModelFactory.getInstance();///instancia
+        ModelFactory modelFactory = ModelFactory.getInstance();
         modelFactory.crearProyecto("software desing ","y878",null,null);
         /// se inicializa crud proyecto
         modelFactory.mostrarInfoEmpresa();
