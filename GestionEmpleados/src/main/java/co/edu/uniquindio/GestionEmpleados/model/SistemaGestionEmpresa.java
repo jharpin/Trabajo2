@@ -126,21 +126,7 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
     }
     @Override
     public boolean eliminarProyecto(String codigoProyecto) {
-        //  Verificar que la lista no sea null
-        if (proyectos == null || proyectos.isEmpty()) {
-            System.out.println(" No hay proyectos registrados.");
-            return false;
-        }
-        //  Buscar el empleado por ID
-        for (Proyecto proyecto : proyectos) {
-            if (proyecto.getCodigoProyecto().equals(codigoProyecto)) {
-                proyectos.remove(proyecto); //  Eliminar de la lista
-                System.out.println(" Proyecto con ID " + codigoProyecto + " eliminado correctamente.");
-                return true;
-            }
-        }
-        System.out.println(" No se encontró un proyecto con ID " + codigoProyecto);
-        return false;
+        return proyectos.removeIf(proyecto -> proyecto.getCodigoProyecto().equals(codigoProyecto));
     }
 
     @Override

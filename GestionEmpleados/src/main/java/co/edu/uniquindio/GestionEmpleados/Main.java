@@ -18,7 +18,7 @@ public class Main {
 
         /// se inicializa crud proyecto
         modelFactory.crearProyecto("manufactura","JKL",null,null);
-        modelFactory.eliminarProyecto("3746");
+        modelFactory.eliminarProyecto("1039");
         modelFactory.modificarProyecto("peliculas","6578",null,null);
 
         /// se inicializa crud Gerente
