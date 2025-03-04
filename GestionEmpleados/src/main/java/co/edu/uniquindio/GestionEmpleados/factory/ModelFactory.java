@@ -227,10 +227,13 @@ public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices, IProye
     public boolean crearDepartamento(String nombreDepartamento, String codigoDepartamento, Gerente gerenteAsociado, Proyecto proyectoAsociado, Tecnico listaTecnico) {
         return sistemaGestionEmpresa.crearDepartamento(nombreDepartamento,codigoDepartamento,gerenteAsociado,proyectoAsociado,listaTecnico);
     }
+
     @Override
     public boolean eliminarDepartamento(String codigoDepartamento) {
         return sistemaGestionEmpresa.eliminarDepartamento(codigoDepartamento);
     }
+
+
     @Override
     public boolean actualizarDepartamento(String nombreDepartamento, String codigoDepartamento, String codigoNuevo) {
         return sistemaGestionEmpresa.actualizarDepartamento(nombreDepartamento,codigoDepartamento,codigoNuevo);

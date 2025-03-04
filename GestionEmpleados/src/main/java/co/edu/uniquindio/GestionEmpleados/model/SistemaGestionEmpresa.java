@@ -224,41 +224,59 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
     }
     @Override
     public boolean crearDepartamento(String nombreDepartamento, String codigoDepartamento, Gerente gerenteAsociado, Proyecto proyectoAsociado, Tecnico listaTecnico) {
-        Departamento departamentoExistente = obtenerDepartamento(codigoDepartamento);
-        if (departamentoExistente == null) {
-            Departamento departamento = new Departamento(nombreDepartamento, codigoDepartamento, proyectoAsociado, gerenteAsociado);
-            departamento.getListaTecnicos().add(listaTecnico);
-            departamentos.add(departamento);
-            return true;
+        Departamento nuevoDepartamento = new Departamento();
+        nuevoDepartamento.setNombreDepartamento(nombreDepartamento);
+        nuevoDepartamento.setCodigoDepartamento(codigoDepartamento);
+        nuevoDepartamento.setProyectoAsociado(proyectoAsociado);
+        nuevoDepartamento.setGerenteAsociado(gerenteAsociado);
+        nuevoDepartamento.setListaTecnicos(listaTecnico);
+        nuevoDepartamento.setProyectoAsociado(proyectoAsociado);
+        ///nuevoDepartamento.setGerenteAsociado();
+        if (departamentos== null) {
+            departamentos = new ArrayList<>();
         }
-        return false;
+        departamentos.add(nuevoDepartamento);
+        return true;
     }
-
-    @Override
-    public boolean eliminarDepartamento(String codigoDepartamento) {
-        return departamentos.removeIf(departamento -> departamento.getCodigoDepartamento().equals(codigoDepartamento));
-    }
-
     @Override
     public boolean actualizarDepartamento(String nombreDepartamento, String codigoDepartamento, String codigoNuevo) {
-        Departamento departamento = obtenerDepartamento(codigoDepartamento);
-        if (departamento != null) {
-            departamento.setNombreDepartamento(nombreDepartamento);
-            departamento.setCodigoDepartamento(codigoNuevo);
-            return true;
+        if (departamentos == null || departamentos.isEmpty()) {
+            System.out.println(" No hay departamentos registrados.");
+            return false;
         }
-        return false;
-    }
-    public Departamento obtenerDepartamento(String codigoDepartamento) {
-        for (Departamento departamento : departamentos) {
+        //  Buscar el departamento por ID
+        for (Departamento departamento : getDepartamentos()) {
+
             if (departamento.getCodigoDepartamento().equals(codigoDepartamento)) {
-                return departamento;
+                // Cambiar el nombre del departamento
+                String nuevonombreDepartamento= "Contaduria";
+                departamento.setNombreDepartamento(nuevonombreDepartamento);
+                System.out.println("Nombre del Departamento  con ID " + codigoDepartamento + " cambiado a: " + nuevonombreDepartamento);
+                return true;
             }
         }
-        return null;
+        System.out.println(" No se encontró un Departamento con ID " + codigoDepartamento);
+        return false;
     }
-}
+    @Override
+    public boolean eliminarDepartamento(String codigoDepartamento) {
+        //  Verificar que la lista no sea null
+        if (departamentos == null || departamentos.isEmpty()) {
+            System.out.println(" No hay departamentos registrados.");
+            return false;
+        }
+        //  Buscar el empleado por ID
+        for (Departamento departamento : departamentos) {
+            if (departamento.getCodigoDepartamento().equals(codigoDepartamento)) {
+                departamentos.remove(departamento); //  Eliminar de la lista
+                System.out.println(" Departamento con ID " + codigoDepartamento + " eliminado correctamente.");
+                return true;
+            }
+        }
+        System.out.println(" No se encontró un Departamento con ID " + codigoDepartamento);
+        return false;}
 
+    /// Mostrar informacion empresa
     @Override
     public void mostrarInfoEmpresa() {
         System.out.println("\n--- Información de la Empresa ---");
