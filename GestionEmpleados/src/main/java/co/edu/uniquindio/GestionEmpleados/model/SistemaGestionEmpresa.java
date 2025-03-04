@@ -1,8 +1,9 @@
 package co.edu.uniquindio.GestionEmpleados.model;
 import co.edu.uniquindio.GestionEmpleados.services.*;
+import co.edu.uniquindio.GestionEmpleados.services.IGerenteCrud;
 
 import java.util.ArrayList;
-public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServices,IProyectoCrud {
+public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServices,IProyectoCrud,IGerenteCrud {
     private ArrayList<Empleado> Empleados;
     private ArrayList<Tecnico> tecnicos;
     private ArrayList<Gerente> gerentes;
@@ -196,8 +197,38 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
         }
 
     }
-
-
-
+    @Override
+    public boolean crearGerente(String nombre, String id, Proyecto proyectoAsociado, Departamento departamentoAsociado) {
+        Gerente gerenteExistente = obtenerGerente(id);
+        if (gerenteExistente == null) {
+            Gerente gerente = new Gerente(nombre, id, proyectoAsociado, departamentoAsociado);
+            gerentes.add(gerente);
+            return true;
+        }
+        return false;
+    }
+    @Override
+    public boolean actualizarGerente(String id, String Nombre, Proyecto ProyectoAsociado, Departamento DepartamentoAsociado) {
+        Gerente gerente = obtenerGerente(id);
+        if (gerente != null) {
+            gerente.setNombre(Nombre);
+            gerente.setProyectoAsociado(ProyectoAsociado);
+            gerente.setDepartamentoAsociado(DepartamentoAsociado);
+            return true;
+        }
+        return false;
+    }
+    @Override
+    public boolean eliminarGerente(String id) {
+        return gerentes.removeIf(gerente -> gerente.getId().equals(id));
+    }
+    @Override
+    public Gerente obtenerGerente(String id) {
+        for (Gerente gerente : gerentes) {
+            if (gerente.getId().equals(id)) {
+                return gerente;
+            }
+        }
+        return null;
+    }
 }
-

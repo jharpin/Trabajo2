@@ -3,7 +3,7 @@ package co.edu.uniquindio.GestionEmpleados.factory;
 import co.edu.uniquindio.GestionEmpleados.model.*;
 import co.edu.uniquindio.GestionEmpleados.services.*;
 
-public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices, IProyectoCrud {
+public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices, IProyectoCrud,IGerenteCrud {
     private static ModelFactory modelFactory;
     private SistemaGestionEmpresa  sistemaGestionEmpresa;
 
@@ -158,4 +158,26 @@ public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices, IProye
     public boolean eliminarProyecto(String codigoProyecto) {
         return sistemaGestionEmpresa.eliminarProyecto(codigoProyecto);
     }
+
+    @Override
+    public boolean crearGerente(String nombre, String id, Proyecto proyectoAsociado, Departamento departamentoAsociado) {
+        return sistemaGestionEmpresa.crearGerente(nombre, id, proyectoAsociado, departamentoAsociado);
+    }
+    @Override
+    public boolean actualizarGerente(String id, String nombre, Proyecto proyectoAsociado, 
+                                 Departamento departamentoAsociado, String idNuevo) {
+        return sistemaGestionEmpresa.actualizarGerente(id, nombre, proyectoAsociado, 
+                                                   departamentoAsociado, idNuevo);
+    }
+
+    @Override
+    public boolean eliminarGerente(String id) {
+        return sistemaGestionEmpresa.eliminarGerente(id);
+    }
+    @Override
+    public Gerente obtenerGerente(String id) {
+        return sistemaGestionEmpresa.obtenerGerente(id);
+    }
+
+    
 }

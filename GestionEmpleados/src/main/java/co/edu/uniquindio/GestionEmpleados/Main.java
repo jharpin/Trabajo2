@@ -15,6 +15,10 @@ public class Main {
         modelFactory.eliminarProyecto("3746");
         modelFactory.modificarProyecto("y878");
         modelFactory.mostrarInfoEmpresa();
+        modelFactory.crearGerente(null, null, null, null);
+        modelFactory.actualizarGerente(null, null, null, null, null);
+        modelFactory.eliminarGerente(null);
+        modelFactory.obtenerGerente(null);
     }
 
 
