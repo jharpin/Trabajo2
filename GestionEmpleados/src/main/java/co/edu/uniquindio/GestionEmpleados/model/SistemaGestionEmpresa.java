@@ -1,6 +1,5 @@
 package co.edu.uniquindio.GestionEmpleados.model;
 import co.edu.uniquindio.GestionEmpleados.services.*;
-import co.edu.uniquindio.GestionEmpleados.services.IGerenteCrud;
 
 import java.util.ArrayList;
 public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServices,IProyectoCrud,IGerenteCrud {
@@ -210,6 +209,14 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
 
     @Override
     public boolean actualizarGerente(String nombre, String id, Proyecto proyectoAsociado, Departamento departamentoAsociado, String idNuevo) {
+        Gerente gerente = obtenerGerente(id);
+        if (gerente != null) {
+            gerente.setId(id);
+            gerente.setNombre(nombre);
+            gerente.setProyectoAsociado(proyectoAsociado);
+            gerente.setDepartamentoAsociado(departamentoAsociado);
+            return true;
+        }
         return false;
     }
 
