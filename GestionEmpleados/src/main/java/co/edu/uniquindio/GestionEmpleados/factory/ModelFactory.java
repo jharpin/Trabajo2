@@ -3,7 +3,7 @@ package co.edu.uniquindio.GestionEmpleados.factory;
 import co.edu.uniquindio.GestionEmpleados.model.*;
 import co.edu.uniquindio.GestionEmpleados.services.*;
 
-public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices, IProyectoCrud,IGerenteCrud {
+public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices, IProyectoCrud,IGerenteCrud, ITecnicoCrud{
     private static ModelFactory modelFactory;
     private SistemaGestionEmpresa  sistemaGestionEmpresa;
 
@@ -177,6 +177,11 @@ public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices, IProye
     @Override
     public Gerente obtenerGerente(String id) {
         return sistemaGestionEmpresa.obtenerGerente(id);
+    }
+
+    @Override 
+    public boolean crearTecnico(String nombre, String id, Proyecto proyectoAsociado, Departamento departamentoAsociado, String especialidad) {
+        return sistemaGestionEmpresa.crearTecnico(nombre, id, proyectoAsociado, departamentoAsociado, especialidad);
     }
 
     

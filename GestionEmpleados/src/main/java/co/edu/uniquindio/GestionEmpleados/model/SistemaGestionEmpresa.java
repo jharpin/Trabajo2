@@ -2,7 +2,7 @@ package co.edu.uniquindio.GestionEmpleados.model;
 import co.edu.uniquindio.GestionEmpleados.services.*;
 
 import java.util.ArrayList;
-public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServices,IProyectoCrud,IGerenteCrud {
+public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServices,IProyectoCrud,IGerenteCrud, ITecnicoCrud {
     private ArrayList<Empleado> Empleados;
     private ArrayList<Tecnico> tecnicos;
     private ArrayList<Gerente> gerentes;
@@ -232,5 +232,15 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
             }
         }
         return null;
+    }
+    @Override
+    public boolean crearTecnico(String nombre, String id, Proyecto proyectoAsociado, Departamento departamentoAsociado, String especialidad) {
+        Tecnico tecnicoExistente = obtenerTecnico(id);
+        if (tecnicoExistente == null) {
+            Tecnico tecnico = new Tecnico(nombre, id, proyectoAsociado, departamentoAsociado, especialidad);
+            tecnicos.add(tecnico);
+            return true;
+        }
+        return false;
     }
 }
