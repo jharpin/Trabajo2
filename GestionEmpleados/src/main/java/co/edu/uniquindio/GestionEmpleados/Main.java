@@ -32,12 +32,11 @@ public class Main {
         modelFactory.crearTecnico("Franco", "456", null, null, null);
         modelFactory.actualizarTecnico("Romario", "6025", null, null, "carpintero");
         modelFactory.eliminarTecnico("5105");
-        modelFactory.obtenerTecnico("456");
 
         /// se inicializa crud departamento
-        modelFactory.crearDepartamento("recursos humanos","152201",null,null,null);
+        modelFactory.crearDepartamento("ingenieria ","152201",null,null,null);
         modelFactory.eliminarDepartamento("6060");
-        modelFactory.actualizarDepartamento("comida","2020","3030");
+        modelFactory.actualizarDepartamento("comida","2020",null,null,null);
         modelFactory.mostrarInfoEmpresa();
         ///ejercicio propio2
         modelFactory.listarGerentesYProyectos();

@@ -239,25 +239,29 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
         return true;
     }
     @Override
-    public boolean actualizarDepartamento(String nombreDepartamento, String codigoDepartamento, String codigoNuevo) {
-        if (departamentos == null || departamentos.isEmpty()) {
-            System.out.println(" No hay departamentos registrados.");
-            return false;
-        }
-        //  Buscar el departamento por ID
-        for (Departamento departamento : getDepartamentos()) {
+    public boolean actualizarDepartamento(String nombreDepartamento, String codigoDepartamento,Gerente gerenteAsociado,Proyecto proyectoAsociado,Tecnico listaTecnicos) {
+        Departamento departamento=ObtenerDepartamento(codigoDepartamento);
+        if (departamento != null) {
+            departamento.setNombreDepartamento(nombreDepartamento);
+            departamento.setCodigoDepartamento(codigoDepartamento);
+            departamento.setProyectoAsociado(proyectoAsociado);
+            departamento.setGerenteAsociado(gerenteAsociado);
+            departamento.setListaTecnicos(listaTecnicos);
 
-            if (departamento.getCodigoDepartamento().equals(codigoDepartamento)) {
-                // Cambiar el nombre del departamento
-                String nuevonombreDepartamento= "Contaduria";
-                departamento.setNombreDepartamento(nuevonombreDepartamento);
-                System.out.println("Nombre del Departamento  con ID " + codigoDepartamento + " cambiado a: " + nuevonombreDepartamento);
-                return true;
-            }
         }
-        System.out.println(" No se encontró un Departamento con ID " + codigoDepartamento);
         return false;
     }
+
+    @Override
+    public Departamento ObtenerDepartamento(String codigoDepartamento) {
+        for (Departamento departamento : departamentos) {
+            if(departamento.getCodigoDepartamento().equals(codigoDepartamento)) {
+                return departamento;
+            }
+        }
+        return null;
+    }
+
     @Override
     public boolean eliminarDepartamento(String codigoDepartamento) {
         //  Verificar que la lista no sea null
