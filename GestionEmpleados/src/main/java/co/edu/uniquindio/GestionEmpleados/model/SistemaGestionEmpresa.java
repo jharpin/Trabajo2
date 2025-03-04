@@ -322,6 +322,23 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
         }
 
     }
+    public boolean listarGerentesYProyectos() {
+        if (gerentes.isEmpty()) {
+            System.out.println("No hay gerentes registrados.");
+            return false;
+        }
+        for (Gerente gerente : gerentes) {
+            String nombre = gerente.getNombre();
+            String id = gerente.getId();
+            /// ? es una condiconal if- else en este caso si proyectoAsociado es nulo: es sin proyecto asignado
+            String nombreProyecto = (gerente.getProyectoAsociado() != null)
+                    ? gerente.getProyectoAsociado().getNombreProyecto()
+                    : "Sin proyecto asignado";
+            /// este seria el else: muestra el proyecto
+            System.out.println("Gerente: " + nombre + " (ID: " + id+ "), Proyecto: " + nombreProyecto);
+        }
+        return false;
+    }
 }
 
 
