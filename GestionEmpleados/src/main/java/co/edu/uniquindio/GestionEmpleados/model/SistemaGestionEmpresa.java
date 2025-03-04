@@ -2,7 +2,7 @@ package co.edu.uniquindio.GestionEmpleados.model;
 import co.edu.uniquindio.GestionEmpleados.services.*;
 
 import java.util.ArrayList;
-public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServices,IProyectoCrud,IGerenteCrud, ITecnicoCrud {
+public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServices,IProyectoCrud,IGerenteCrud, ITecnicoCrud,IDepartamentoCrud{
     private ArrayList<Empleado> Empleados;
     private ArrayList<Tecnico> tecnicos;
     private ArrayList<Gerente> gerentes;
@@ -229,11 +229,13 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
         return null;
     }
     @Override
-    public boolean crearDepartamento(String nombreDepartamento, String codigoDepartamento, Gerente gerenteAsociado, Empleado empleadosAsignado, Proyecto proyectoAsociado, Tecnico tecnico) {
+    public boolean crearDepartamento(String nombreDepartamento, String codigoDepartamento, Gerente gerenteAsociado, Proyecto proyectoAsociado, Tecnico listaTecnico) {
         Departamento nuevoDepartamento = new Departamento();
         nuevoDepartamento.setNombreDepartamento(nombreDepartamento);
         nuevoDepartamento.setCodigoDepartamento(codigoDepartamento);
-        nuevoDepartamento.setListaTecnicos();
+        nuevoDepartamento.setProyectoAsociado(proyectoAsociado);
+        nuevoDepartamento.setGerenteAsociado(gerenteAsociado);
+        nuevoDepartamento.setListaTecnicos(listaTecnico);
         nuevoDepartamento.setProyectoAsociado(proyectoAsociado);
         ///nuevoDepartamento.setGerenteAsociado();
         if (departamentos== null) {
@@ -243,13 +245,13 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
         return true;
     }
     @Override
-    public boolean modificarDepartamento(String codigoDepartamento) {
+    public boolean actualizarDepartamento(String nombreDepartamento, String codigoDepartamento, String codigoNuevo) {
         if (departamentos == null || departamentos.isEmpty()) {
             System.out.println(" No hay departamentos registrados.");
             return false;
         }
         //  Buscar el departamento por ID
-        for (Departamento departamento : departamentos) {
+        for (Departamento departamento : getDepartamentos()) {
 
             if (departamento.getCodigoDepartamento().equals(codigoDepartamento)) {
                 // Cambiar el nombre del departamento
@@ -263,14 +265,14 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
         return false;
     }
     @Override
-    public boolean eliminarDepartamento(String codigoProyecto) {
+    public boolean eliminarDepartamento(String codigoDepartamento) {
         //  Verificar que la lista no sea null
         if (departamentos == null || departamentos.isEmpty()) {
             System.out.println(" No hay departamentos registrados.");
             return false;
         }
         //  Buscar el empleado por ID
-        for (departamentos departamento : departamentos) {
+        for (Departamento departamento : departamentos) {
             if (departamento.getCodigoDepartamento().equals(codigoDepartamento)) {
                 departamentos.remove(departamento); //  Eliminar de la lista
                 System.out.println(" Departamento con ID " + codigoDepartamento + " eliminado correctamente.");

@@ -3,7 +3,7 @@ package co.edu.uniquindio.GestionEmpleados.factory;
 import co.edu.uniquindio.GestionEmpleados.model.*;
 import co.edu.uniquindio.GestionEmpleados.services.*;
 
-public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices, IProyectoCrud,IGerenteCrud, ITecnicoCrud{
+public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices, IProyectoCrud,IGerenteCrud, ITecnicoCrud,IDepartamentoCrud{
     /// inicializacion de los objetos
     private static ModelFactory modelFactory;
     private SistemaGestionEmpresa  sistemaGestionEmpresa;
@@ -172,6 +172,7 @@ public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices, IProye
     public boolean eliminarProyecto(String codigoProyecto) {
         return sistemaGestionEmpresa.eliminarProyecto(codigoProyecto);
     }
+
     /// CRUD GERENTE
     @Override
     public boolean crearGerente(String nombre, String id, Proyecto proyectoAsociado, Departamento departamentoAsociado) {
@@ -209,16 +210,19 @@ public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices, IProye
     }
     /// CRUD DEPARTAMENTO
     @Override
-    public boolean crearDepartamento(String nombreDepartamento, String codigoDepartamento, Gerente gerenteAsociado, Empleado empleadosAsociado, Proyecto proyectoAsociado, Tecnico tecnicoAsociado) {
-        return sistemaGestionEmpresa.crearDepartamento(nombreDepartamento, codigoDepartamento, gerenteAsociado, empleadosAsociado, proyectoAsociado, tecnicoAsociado);
+    public boolean crearDepartamento(String nombreDepartamento, String codigoDepartamento, Gerente gerenteAsociado, Proyecto proyectoAsociado, Tecnico listaTecnico) {
+        return sistemaGestionEmpresa.crearDepartamento(nombreDepartamento,codigoDepartamento,gerenteAsociado,proyectoAsociado,listaTecnico);
     }
+
     @Override
     public boolean eliminarDepartamento(String codigoDepartamento) {
         return sistemaGestionEmpresa.eliminarDepartamento(codigoDepartamento);
     }
+
+
     @Override
-    public boolean actualizarDepartamento(String odigoDepartamento) {
-        return sistemaGestionEmpresa.actualizarDepartamento(codigoDepartamento);
+    public boolean actualizarDepartamento(String nombreDepartamento, String codigoDepartamento, String codigoNuevo) {
+        return sistemaGestionEmpresa.actualizarDepartamento(nombreDepartamento,codigoDepartamento,codigoNuevo);
     }
     
 }

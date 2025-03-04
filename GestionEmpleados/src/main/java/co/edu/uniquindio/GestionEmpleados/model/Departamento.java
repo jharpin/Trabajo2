@@ -48,7 +48,7 @@ public class Departamento {
     public ArrayList<Tecnico> getListaTecnicos() {
         return listaTecnicos;
     }
-    public void setListaTecnicos(){
+    public void setListaTecnicos(Tecnico listaTecnicos){
         this.listaTecnicos = new ArrayList<>();
     }
 }

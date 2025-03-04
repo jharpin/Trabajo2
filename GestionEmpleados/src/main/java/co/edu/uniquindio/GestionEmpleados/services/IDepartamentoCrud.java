@@ -6,10 +6,8 @@ import co.edu.uniquindio.GestionEmpleados.model.Proyecto;
 import co.edu.uniquindio.GestionEmpleados.model.Tecnico;
 
 public interface IDepartamentoCrud {
-    /**boolean crearDepartamento(String nombreDepartamento, String codigoDepartamento, Gerente gerenteAsociado, Empleado empleadosAsignado, Proyecto proyectoAsociado, Tecnico tecnico);
-    boolean actualizarDepartamento(String nombreDepartamento,
-    String codigoDepartamento, String codigoNuevo);
+    boolean crearDepartamento(String nombreDepartamento, String codigoDepartamento, Gerente gerenteAsociado, Proyecto proyectoAsociado, Tecnico listaTecnicos);
     boolean eliminarDepartamento(String codigoDepartamento);
-    String obtenerDatosDepartamento(String codigoDepartamento);**/
-    
+    boolean actualizarDepartamento(String nombreDepartamento,
+                                   String codigoDepartamento, String codigoNuevo);
 }

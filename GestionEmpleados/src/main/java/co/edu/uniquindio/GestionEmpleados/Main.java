@@ -14,12 +14,12 @@ public class Main {
         /// se inicializa crud empleado
         modelFactory.eliminarEmpleado("1011");
         modelFactory.crearEmpleado("vega2","450",null);
+        //
         modelFactory.eliminarProyecto("3746");
         modelFactory.modificarProyecto("y878");
         /// se inicializa crud Gerente
         modelFactory.crearGerente("manu", "mnñ", null, null);
         modelFactory.eliminarGerente("6025");
-        modelFactory.obtenerGerente("mnñ");
         modelFactory.actualizarGerente("sans","6868",null,null);
         modelFactory.agregarProyectoAsociadaGerente("mnñ");
         /// se inicializa crud tecnico
@@ -27,12 +27,12 @@ public class Main {
         modelFactory.actualizarTecnico("Romario", "422", null, null, "carpintero");
         modelFactory.eliminarTecnico("456");
         modelFactory.obtenerTecnico("456");
-        modelFactory.mostrarInfoEmpresa();
+
         /// se inicializa crud departamento
-        modelFactory.crearDepartamento("recursos humanos","152201","mnñ","450","y878","456");
-        modelFactory.actualizarDepartamento();
-        modelFactory.eliminarDepartamento("1011");
-        modelFactory.agregarProyectoAsociadoDepartamento("mnñ");
+        modelFactory.crearDepartamento("recursos humanos","152201",null,null,null);
+        modelFactory.eliminarDepartamento("6060");
+        modelFactory.actualizarDepartamento("comida","2020","3030");
+        modelFactory.mostrarInfoEmpresa();
     }
 
 
