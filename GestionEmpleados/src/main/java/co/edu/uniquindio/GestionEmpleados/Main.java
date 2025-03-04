@@ -1,10 +1,5 @@
 package co.edu.uniquindio.GestionEmpleados;
-
 import co.edu.uniquindio.GestionEmpleados.factory.ModelFactory;
-import co.edu.uniquindio.GestionEmpleados.model.Empleado;
-import co.edu.uniquindio.GestionEmpleados.model.Proyecto;
-import co.edu.uniquindio.GestionEmpleados.services.ImodelFactoryServices;
-
 public class Main {
     public static void main(String[] args) {
         ModelFactory modelFactory = ModelFactory.getInstance();
@@ -33,6 +28,7 @@ public class Main {
         modelFactory.actualizarTecnico("Romario", "6025", null, null, "carpintero");
         modelFactory.eliminarTecnico("5105");
 
+
         /// se inicializa crud departamento
         modelFactory.crearDepartamento("ingenieria ","152201",null,null,null);
         modelFactory.eliminarDepartamento("6060");
@@ -40,7 +36,8 @@ public class Main {
         modelFactory.mostrarInfoEmpresa();
         ///ejercicio propio2
         modelFactory.listarGerentesYProyectos();
-        modelFactory.tecnicoPerteneceProyecto("5105");
+        modelFactory.tecnicoPerteneceProyecto();
+
     }
     }
 

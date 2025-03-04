@@ -7,5 +7,5 @@ public interface ImodelFactoryServices {
 
     boolean listarGerentesYProyectos();
 
-    boolean tecnicoPerteneceProyecto(String idTecnico);
+    boolean tecnicoPerteneceProyecto();
 }

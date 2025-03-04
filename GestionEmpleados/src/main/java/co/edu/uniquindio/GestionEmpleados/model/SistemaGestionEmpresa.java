@@ -264,15 +264,7 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
         return false;
     }
 
-    @Override
-    public Departamento ObtenerDepartamento(String codigoDepartamento) {
-        for (Departamento departamento : departamentos) {
-            if (departamento.getCodigoDepartamento().equals(codigoDepartamento)) {
-                return departamento;
-            }
-        }
-        return null;
-    }
+    
 
     @Override
     public boolean eliminarDepartamento(String codigoDepartamento) {
@@ -360,17 +352,24 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
     }
 
     @Override
-    public boolean tecnicoPerteneceProyecto(String idTecnico) {
+    public boolean tecnicoPerteneceProyecto() {
+        if (tecnicos.isEmpty()) {
+            System.out.println("No hay tecnicos registrados.");
+            return false;
+        }
         for (Tecnico tecnico : tecnicos) {
-            if (tecnico.getId().equals(idTecnico) && tecnico.getProyectoAsociado() != null) {
-                tecnico.getNombre();
-                System.out.println("El técnico " + getTecnicos().get(0).getNombre() + " se encuentra registrado en el proyecto." + proyectos.get(0).getNombreProyecto());
-                return true;
-            }
-
+            String nombre = tecnico.getNombre();
+            String id = tecnico.getId();
+            /// ? es una condiconal if- else en este caso si proyectoAsociado es nulo: es sin proyecto asignado
+            String nombreProyecto = (tecnico.getProyectoAsociado() != null)
+                    ? tecnico.getProyectoAsociado().getNombreProyecto()
+                    : "Sin proyecto asignado";
+            /// este seria el else: muestra el proyecto
+            System.out.println("Tecnico: " + nombre + " (ID: " + id + "), Proyecto: " + nombreProyecto);
         }
         return false;
     }
+
 }
 
 

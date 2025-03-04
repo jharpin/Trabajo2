@@ -249,8 +249,8 @@ public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices, IProye
     }
 
     @Override
-    public boolean tecnicoPerteneceProyecto(String idTecnico) {
-        return false;
+    public boolean tecnicoPerteneceProyecto() {
+        return sistemaGestionEmpresa.tecnicoPerteneceProyecto();
     }
 
 }
