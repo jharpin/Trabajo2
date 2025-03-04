@@ -37,7 +37,7 @@ public class Main {
         modelFactory.eliminarDepartamento("6060");
         modelFactory.actualizarDepartamento("comida","2020","3030");
         modelFactory.mostrarInfoEmpresa();
-        ///segundo ejercicio propio
+        ///segundo ejercicio propio1
         modelFactory.listarGerentesYProyectos();
     }
     }
