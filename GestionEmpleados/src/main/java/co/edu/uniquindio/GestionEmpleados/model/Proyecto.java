@@ -28,9 +28,10 @@ public class Proyecto {
         return ListaEmpleadosAsignados;
     }
     public void setListaEmpleadosAsignados(){
+
         this.ListaEmpleadosAsignados = new ArrayList<>();
     }
-    public ArrayList<Departamento> getListaDepartamentos() {
+    public ArrayList<Departamento> getListaDepartamentos(Departamento listaDepartamento) {
         return ListaDepartamentos;
     }
     public void setListaDepartamentos(){

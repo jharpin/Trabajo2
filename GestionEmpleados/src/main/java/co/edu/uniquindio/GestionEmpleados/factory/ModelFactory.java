@@ -174,12 +174,17 @@ public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices, IProye
         return sistemaGestionEmpresa.crearProyecto(nombreProyecto,codigoProyecto,departamentoAsociado,empleadosAsignado);
     }
     @Override
-    public boolean modificarProyecto(String codigoProyecto) {
-        return sistemaGestionEmpresa.modificarProyecto(codigoProyecto);
+    public boolean modificarProyecto(String nombreProyecto,String codigoProyecto,Empleado listaEmpleados,Departamento listaDepartamento) {
+        return sistemaGestionEmpresa.modificarProyecto(nombreProyecto,codigoProyecto,listaEmpleados,listaDepartamento);
     }
     @Override
     public boolean eliminarProyecto(String codigoProyecto) {
         return sistemaGestionEmpresa.eliminarProyecto(codigoProyecto);
+    }
+
+    @Override
+    public Proyecto obtenerProyecto(String codigoProyecto) {
+        return sistemaGestionEmpresa.obtenerProyecto(codigoProyecto);
     }
 
     /// CRUD GERENTE

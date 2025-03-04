@@ -16,9 +16,11 @@ public class Main {
         modelFactory.eliminarEmpleado("1011");
         modelFactory.ActualizarEmpleado("5105","pepito",null);
 
-        //
+        /// se inicializa crud proyecto
+        modelFactory.crearProyecto("manufactura","JKL",null,null);
         modelFactory.eliminarProyecto("3746");
-        modelFactory.modificarProyecto("y878");
+        modelFactory.modificarProyecto("peliculas","6578",null,null);
+
         /// se inicializa crud Gerente
         modelFactory.crearGerente("manu", "mnñ", null, null);
         modelFactory.eliminarGerente("6025");

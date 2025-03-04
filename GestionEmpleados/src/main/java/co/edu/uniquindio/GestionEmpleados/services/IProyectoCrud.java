@@ -7,8 +7,10 @@ import co.edu.uniquindio.GestionEmpleados.model.Proyecto;
 public interface IProyectoCrud {
     boolean crearProyecto(String nombreProyecto, String codigoProyecto, Departamento departamentoAsociado, Empleado empleadosAsignado);
 
-    boolean modificarProyecto( String codigoProyecto);
+    boolean modificarProyecto( String nombreProyecto,String codigoProyecto,Empleado listaEmpleados,Departamento listaDepartamento);
 
     boolean eliminarProyecto(String codigoProyecto);
+
+    Proyecto obtenerProyecto(String codigoProyecto);
 
 }

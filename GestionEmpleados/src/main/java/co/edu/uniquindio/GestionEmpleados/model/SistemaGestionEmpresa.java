@@ -113,23 +113,15 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
         return true;
     }
     @Override
-    public boolean modificarProyecto(String codigoProyecto) {
-        if (proyectos == null || proyectos.isEmpty()) {
-            System.out.println(" No hay proyectos registrados.");
-            return false;
+    public boolean modificarProyecto(String nombreProyecto,String codigoProyecto,Empleado listaEmpleados,Departamento listaDepartamento) {
+        Proyecto nuevoProyecto = obtenerProyecto(codigoProyecto);
+        if (nuevoProyecto != null) {
+            nuevoProyecto.setNombreProyecto(nombreProyecto);
+            nuevoProyecto.setCodigoProyecto(codigoProyecto);
+            nuevoProyecto.setListaDepartamentos();
+            nuevoProyecto.setListaEmpleadosAsignados();
+            return true;
         }
-        //  Buscar el empleado por ID
-        for (Proyecto proyecto : proyectos) {
-
-            if (proyecto.getCodigoProyecto().equals(codigoProyecto)) {
-                // Cambiar el nombre del proyecto
-                String nombre1 = "refuerzo";
-                proyecto.setNombreProyecto(nombre1);
-                System.out.println("Nombre del proyecto con ID " + codigoProyecto + " cambiado a: " + nombre1);
-                return true;
-            }
-        }
-        System.out.println(" No se encontró un proyecto con ID " + codigoProyecto);
         return false;
     }
     @Override
@@ -150,6 +142,17 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
         System.out.println(" No se encontró un proyecto con ID " + codigoProyecto);
         return false;
     }
+
+    @Override
+    public Proyecto obtenerProyecto(String codigoProyecto) {
+        for(Proyecto proyecto : proyectos) {
+            if (proyecto.getCodigoProyecto().equals(codigoProyecto)) {
+                return proyecto;
+            }
+        }
+        return null;
+    }
+
     ///  asociacion gerente proyecto
     @Override
     public boolean agregarProyectoAsociadaGerente(String id) {
