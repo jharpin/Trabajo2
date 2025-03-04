@@ -10,6 +10,7 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
     private ArrayList<Proyecto> proyectos;
 
     public SistemaGestionEmpresa() {
+        /// inicializacion de listas
         this.Empleados = new ArrayList<>();
         this.tecnicos = new ArrayList<>();
         this.gerentes = new ArrayList<>();
@@ -17,6 +18,7 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
         this.proyectos = new ArrayList<>();
     }
 
+    /// getters and setters
     public ArrayList<Empleado> getEmpleados() {
         return Empleados;
     }
@@ -57,6 +59,7 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
         this.proyectos = proyectos;
     }
 
+    /// CRUD EMPLEADO
     @Override
     public boolean crearEmpleado(String nombre, String id, Proyecto proyectoAsociado) {
         Empleado nuevoEmpleado = new Empleado();
@@ -90,46 +93,40 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
         System.out.println(" No se encontró un empleado con ID " + id);
         return false;
     }
+
+    /// CRUD Proyecto
     public boolean crearProyecto(String nombreProyecto, String codigoProyecto, Departamento departamentoAsociado, Empleado empleadosAsignado) {
         Proyecto nuevoProyecto = new Proyecto();
-        nuevoProyecto .setNombreProyecto(nombreProyecto);
-        nuevoProyecto .setCodigoProyecto(codigoProyecto);
-        nuevoProyecto .setListaDepartamentos();
+        nuevoProyecto.setNombreProyecto(nombreProyecto);
+        nuevoProyecto.setCodigoProyecto(codigoProyecto);
+        nuevoProyecto.setListaDepartamentos();
         nuevoProyecto.setListaEmpleadosAsignados();
-
-
         if (proyectos == null) {
             proyectos = new ArrayList<>();
         }
-
         proyectos.add(nuevoProyecto);
         return true;
     }
-
-
     @Override
-    public boolean modificarProyecto( String codigoProyecto){
+    public boolean modificarProyecto(String codigoProyecto) {
         if (proyectos == null || proyectos.isEmpty()) {
             System.out.println(" No hay proyectos registrados.");
             return false;
         }
-            //  Buscar el empleado por ID
-            for (Proyecto proyecto : proyectos) {
+        //  Buscar el empleado por ID
+        for (Proyecto proyecto : proyectos) {
 
-                if (proyecto.getCodigoProyecto().equals(codigoProyecto)) {
-                    // Cambiar el nombre del proyecto
-                    String nombre1 = "refuerzo";
-                    proyecto.setNombreProyecto(nombre1);
-                    System.out.println("Nombre del proyecto con ID " + codigoProyecto + " cambiado a: " + nombre1);
-                    return true;
-                }
+            if (proyecto.getCodigoProyecto().equals(codigoProyecto)) {
+                // Cambiar el nombre del proyecto
+                String nombre1 = "refuerzo";
+                proyecto.setNombreProyecto(nombre1);
+                System.out.println("Nombre del proyecto con ID " + codigoProyecto + " cambiado a: " + nombre1);
+                return true;
             }
-
+        }
         System.out.println(" No se encontró un proyecto con ID " + codigoProyecto);
         return false;
     }
-
-
     @Override
     public boolean eliminarProyecto(String codigoProyecto) {
         //  Verificar que la lista no sea null
@@ -137,7 +134,6 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
             System.out.println(" No hay proyectos registrados.");
             return false;
         }
-
         //  Buscar el empleado por ID
         for (Proyecto proyecto : proyectos) {
             if (proyecto.getCodigoProyecto().equals(codigoProyecto)) {
@@ -146,68 +142,21 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
                 return true;
             }
         }
-
         System.out.println(" No se encontró un proyecto con ID " + codigoProyecto);
         return false;
     }
-
-    @Override
-    public void mostrarInfoEmpresa() {
-        System.out.println("\n--- Información de la Empresa ---");
-        //mostrar proyectos
-        System.out.println("\n Proyectos: ");
-        for ( Proyecto proyecto: getProyectos()){
-            System.out.println("    Nombre: "+proyecto.getNombreProyecto()+
-                    ", codigo "+proyecto.getCodigoProyecto());
-        }
-
-        //  Mostrar empleados
-        System.out.println("\n Empleados:");
-        for (Empleado empleado : getEmpleados()) {
-            System.out.println("   - Nombre: " + empleado.getNombre() +
-                    ", ID: " + empleado.getId() +
-                    ", Proyecto: " + (empleado.getProyectoAsociado() != null ? empleado.getProyectoAsociado().getNombreProyecto() : "Sin proyecto"));
-        }
-
-        //  Mostrar técnicos
-        System.out.println("\n Técnicos:");
-        for (Tecnico tecnico : getTecnicos()) {
-            System.out.println("   - Nombre: " + tecnico.getNombre() +
-                    ", ID: " + tecnico.getId() +
-                    ", Especialidad: " + tecnico.getEspecialidad() +
-                    ", Proyecto: " + (tecnico.getProyectoAsociado() != null ? tecnico.getProyectoAsociado().getNombreProyecto() : "Sin proyecto"));
-        }
-
-        //  Mostrar gerentes
-        System.out.println("\n Gerentes:");
-        for (Gerente gerente : getGerentes()) {
-            System.out.println("   - Nombre: " + gerente.getNombre() +
-                    ", ID: " + gerente.getId() +
-                    ", Departamento: " + (gerente.getDepartamentoAsociado() != null ? gerente.getDepartamentoAsociado().getNombreDepartamento() : "Sin departamento") +
-                    ", Proyecto: " + (gerente.getProyectoAsociado() != null ? gerente.getProyectoAsociado().getNombreProyecto() : "Sin proyecto"));
-        }
-
-        //  Mostrar departamentos
-        System.out.println("\n Departamentos:");
-        for (Departamento departamento :getDepartamentos()) {
-            System.out.println("   - Nombre: " + departamento.getNombreDepartamento() +
-                    ", Código: " + departamento.getCodigoDepartamento() +
-                    ", Proyecto Asociado: " + (departamento.getProyectoAsociado() != null ? departamento.getProyectoAsociado().getNombreProyecto() : "Ninguno"));
-        }
-
-    }
-
+    ///  asociacion gerente proyecto
     @Override
     public boolean agregarProyectoAsociadaGerente(String id) {
-        Proyecto proyectoAsociado = new Proyecto("manzana","abc");
-        for(Gerente gerente: getGerentes()){
-            if(gerente.getId().equals(id)){
+        Proyecto proyectoAsociado = new Proyecto("manzana", "abc");
+        for (Gerente gerente : getGerentes()) {
+            if (gerente.getId().equals(id)) {
                 gerente.setProyectoAsociado(proyectoAsociado);
             }
         }
         return false;
     }
-
+    /// CRUD Gerente
     @Override
     public boolean crearGerente(String nombre, String id, Proyecto proyectoAsociado, Departamento departamentoAsociado) {
         Gerente gerenteExistente = obtenerGerente(id);
@@ -234,8 +183,6 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
     public boolean eliminarGerente(String id) {
         return gerentes.removeIf(gerente -> gerente.getId().equals(id));
     }
-
-
     @Override
     public Gerente obtenerGerente(String id) {
         for (Gerente gerente : gerentes) {
@@ -245,7 +192,6 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
         }
         return null;
     }
-
     @Override
     public boolean crearTecnico(String nombre, String id, Proyecto proyectoAsociado, Departamento departamentoAsociado, String especialidad) {
         Tecnico tecnicoExistente = obtenerTecnico(id);
@@ -282,4 +228,104 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
         }
         return null;
     }
+    @Override
+    public boolean crearDepartamento(String nombreDepartamento, String codigoDepartamento, Gerente gerenteAsociado, Empleado empleadosAsignado, Proyecto proyectoAsociado, Tecnico tecnico) {
+        Departamento nuevoDepartamento = new Departamento();
+        nuevoDepartamento.setNombreDepartamento(nombreDepartamento);
+        nuevoDepartamento.setCodigoDepartamento(codigoDepartamento);
+        nuevoDepartamento.setListaTecnicos();
+        nuevoDepartamento.setProyectoAsociado(proyectoAsociado);
+        ///nuevoDepartamento.setGerenteAsociado();
+        if (departamentos== null) {
+            departamentos = new ArrayList<>();
+        }
+        departamentos.add(nuevoDepartamento);
+        return true;
+    }
+    @Override
+    public boolean modificarDepartamento(String codigoDepartamento) {
+        if (departamentos == null || departamentos.isEmpty()) {
+            System.out.println(" No hay departamentos registrados.");
+            return false;
+        }
+        //  Buscar el departamento por ID
+        for (Departamento departamento : departamentos) {
+
+            if (departamento.getCodigoDepartamento().equals(codigoDepartamento)) {
+                // Cambiar el nombre del departamento
+                String nuevonombreDepartamento= "Contaduria";
+                departamento.setNombreDepartamento(nuevonombreDepartamento);
+                System.out.println("Nombre del Departamento  con ID " + codigoDepartamento + " cambiado a: " + nuevonombreDepartamento);
+                return true;
+            }
+        }
+        System.out.println(" No se encontró un Departamento con ID " + codigoDepartamento);
+        return false;
+    }
+    @Override
+    public boolean eliminarDepartamento(String codigoProyecto) {
+        //  Verificar que la lista no sea null
+        if (departamentos == null || departamentos.isEmpty()) {
+            System.out.println(" No hay departamentos registrados.");
+            return false;
+        }
+        //  Buscar el empleado por ID
+        for (departamentos departamento : departamentos) {
+            if (departamento.getCodigoDepartamento().equals(codigoDepartamento)) {
+                departamentos.remove(departamento); //  Eliminar de la lista
+                System.out.println(" Departamento con ID " + codigoDepartamento + " eliminado correctamente.");
+                return true;
+            }
+        }
+        System.out.println(" No se encontró un Departamento con ID " + codigoDepartamento);
+        return false;}
+
+    /// Mostrar informacion empresa
+    @Override
+    public void mostrarInfoEmpresa() {
+        System.out.println("\n--- Información de la Empresa ---");
+        //mostrar proyectos
+        System.out.println("\n Proyectos: ");
+        for (Proyecto proyecto : getProyectos()) {
+            System.out.println("    Nombre: " + proyecto.getNombreProyecto() +
+                    ", codigo " + proyecto.getCodigoProyecto());
+        }
+
+        //  Mostrar empleados
+        System.out.println("\n Empleados:");
+        for (Empleado empleado : getEmpleados()) {
+            System.out.println("   - Nombre: " + empleado.getNombre() +
+                    ", ID: " + empleado.getId() +
+                    ", Proyecto: " + (empleado.getProyectoAsociado() != null ? empleado.getProyectoAsociado().getNombreProyecto() : "Sin proyecto"));
+        }
+
+        //  Mostrar técnicos
+        System.out.println("\n Técnicos:");
+        for (Tecnico tecnico : getTecnicos()) {
+            System.out.println("   - Nombre: " + tecnico.getNombre() +
+                    ", ID: " + tecnico.getId() +
+                    ", Especialidad: " + tecnico.getEspecialidad() +
+                    ", Proyecto: " + (tecnico.getProyectoAsociado() != null ? tecnico.getProyectoAsociado().getNombreProyecto() : "Sin proyecto"));
+        }
+
+        //  Mostrar gerentes
+        System.out.println("\n Gerentes:");
+        for (Gerente gerente : getGerentes()) {
+            System.out.println("   - Nombre: " + gerente.getNombre() +
+                    ", ID: " + gerente.getId() +
+                    ", Departamento: " + (gerente.getDepartamentoAsociado() != null ? gerente.getDepartamentoAsociado().getNombreDepartamento() : "Sin departamento") +
+                    ", Proyecto: " + (gerente.getProyectoAsociado() != null ? gerente.getProyectoAsociado().getNombreProyecto() : "Sin proyecto"));
+        }
+
+        //  Mostrar departamentos
+        System.out.println("\n Departamentos:");
+        for (Departamento departamento : getDepartamentos()) {
+            System.out.println("   - Nombre: " + departamento.getNombreDepartamento() +
+                    ", Código: " + departamento.getCodigoDepartamento() +
+                    ", Proyecto Asociado: " + (departamento.getProyectoAsociado() != null ? departamento.getProyectoAsociado().getNombreProyecto() : "Ninguno"));
+        }
+
+    }
 }
+
+

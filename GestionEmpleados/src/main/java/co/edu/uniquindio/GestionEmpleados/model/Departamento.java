@@ -1,5 +1,7 @@
 package co.edu.uniquindio.GestionEmpleados.model;
 
+import co.edu.uniquindio.GestionEmpleados.services.ITecnicoCrud;
+
 import java.util.ArrayList;
 
 public class Departamento {

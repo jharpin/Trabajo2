@@ -4,18 +4,24 @@ import co.edu.uniquindio.GestionEmpleados.model.*;
 import co.edu.uniquindio.GestionEmpleados.services.*;
 
 public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices, IProyectoCrud,IGerenteCrud, ITecnicoCrud{
+    /// inicializacion de los objetos
     private static ModelFactory modelFactory;
     private SistemaGestionEmpresa  sistemaGestionEmpresa;
 
     private ModelFactory(){inicializarDatos();}
+    /// si model factory es nulo crea una nueva instancia
     public static ModelFactory getInstance(){
         if (modelFactory == null){
             modelFactory = new ModelFactory();
         }
+        ///si no, retorne el objeto ya creado
         return  modelFactory;
     }
     private void inicializarDatos() {
+        /// se inicializan datos en quemado para facilitar el debug del codigo
+        /// nueva instancia de gestion empresa
         sistemaGestionEmpresa= new SistemaGestionEmpresa();
+        /// datos proyecto
         Proyecto proyecto1=new Proyecto();
         proyecto1.setNombreProyecto("Expansion");
         proyecto1.setCodigoProyecto("1039");
@@ -28,6 +34,7 @@ public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices, IProye
         Proyecto proyecto4=new Proyecto();
         proyecto4.setNombreProyecto("Construccion");
         proyecto4.setCodigoProyecto("6578");
+        /// datos departamento
         Departamento departamento1 = new Departamento();
         departamento1.setNombreDepartamento("Administrativo");
         departamento1.setCodigoDepartamento("2020");
@@ -40,6 +47,7 @@ public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices, IProye
         Departamento departamento4 = new Departamento();
         departamento4.setNombreDepartamento("General");
         departamento4.setCodigoDepartamento("6060");
+        /// datos empleado
         Empleado empleado1 = new Empleado();
         empleado1.setNombre("Fernando");
         empleado1.setId("1011");
@@ -55,6 +63,7 @@ public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices, IProye
         Empleado empleado4 = new Empleado();
         empleado4.setNombre("Ricardo");
         empleado4.setId("6868");
+        /// datos tecnico
         empleado4.setProyectoAsociado(proyecto4);
         Tecnico tecnico1= new Tecnico();
         tecnico1.setNombre("Juan");
@@ -80,6 +89,7 @@ public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices, IProye
         tecnico4.setProyectoAsociado(proyecto4);
         tecnico4.setDepartamentoAsociado(departamento4);
         tecnico4.setEspecialidad("Electricidad");
+        /// datos gerente
         Gerente gerente1 = new Gerente();
         gerente1.setNombre("Marlon");
         gerente1.setId("1011");
@@ -104,7 +114,7 @@ public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices, IProye
         departamento2.setProyectoAsociado(proyecto2);
         departamento3.setProyectoAsociado(proyecto3);
         departamento4.setProyectoAsociado(proyecto4);
-
+        /// se agregan a las listas en sistemaGestiom
         sistemaGestionEmpresa.getDepartamentos().add(departamento1);
         sistemaGestionEmpresa.getDepartamentos().add(departamento2);
         sistemaGestionEmpresa.getDepartamentos().add(departamento3);
@@ -129,7 +139,7 @@ public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices, IProye
        
     }
 
-
+    /// CRUD EMPLEADOS
     @Override
     public boolean crearEmpleado(String nombre, String id, Proyecto proyectoAsociado) {
         return sistemaGestionEmpresa.crearEmpleado(nombre,id,proyectoAsociado);
@@ -145,16 +155,15 @@ public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices, IProye
         sistemaGestionEmpresa.mostrarInfoEmpresa();
     }
 
+    /// CRUD  Proyecto
     @Override
     public boolean agregarProyectoAsociadaGerente(String id) {
         return sistemaGestionEmpresa.agregarProyectoAsociadaGerente(id);
     }
-
     @Override
     public boolean crearProyecto(String nombreProyecto, String codigoProyecto, Departamento departamentoAsociado, Empleado empleadosAsignado) {
         return sistemaGestionEmpresa.crearProyecto(nombreProyecto,codigoProyecto,departamentoAsociado,empleadosAsignado);
     }
-
     @Override
     public boolean modificarProyecto(String codigoProyecto) {
         return sistemaGestionEmpresa.modificarProyecto(codigoProyecto);
@@ -163,7 +172,7 @@ public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices, IProye
     public boolean eliminarProyecto(String codigoProyecto) {
         return sistemaGestionEmpresa.eliminarProyecto(codigoProyecto);
     }
-
+    /// CRUD GERENTE
     @Override
     public boolean crearGerente(String nombre, String id, Proyecto proyectoAsociado, Departamento departamentoAsociado) {
         return sistemaGestionEmpresa.crearGerente(nombre, id, proyectoAsociado, departamentoAsociado);
@@ -172,9 +181,7 @@ public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices, IProye
     public boolean actualizarGerente( String nombre,String id, Proyecto proyectoAsociado,
                                  Departamento departamentoAsociado) {
         return sistemaGestionEmpresa.actualizarGerente( nombre,id, proyectoAsociado,
-                                                   departamentoAsociado);
-    }
-
+                    departamentoAsociado);}
     @Override
     public boolean eliminarGerente(String id) {
         return sistemaGestionEmpresa.eliminarGerente(id);
@@ -183,7 +190,7 @@ public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices, IProye
     public Gerente obtenerGerente(String id) {
         return sistemaGestionEmpresa.obtenerGerente(id);
     }
-
+    /// CRUD TECNICO
     @Override 
     public boolean crearTecnico(String nombre, String id, Proyecto proyectoAsociado, Departamento departamentoAsociado, String especialidad) {
         return sistemaGestionEmpresa.crearTecnico(nombre, id, proyectoAsociado, departamentoAsociado, especialidad);
@@ -200,6 +207,18 @@ public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices, IProye
     public Tecnico obtenerTecnico(String id) {
         return sistemaGestionEmpresa.obtenerTecnico(id);
     }
-
+    /// CRUD DEPARTAMENTO
+    @Override
+    public boolean crearDepartamento(String nombreDepartamento, String codigoDepartamento, Gerente gerenteAsociado, Empleado empleadosAsociado, Proyecto proyectoAsociado, Tecnico tecnicoAsociado) {
+        return sistemaGestionEmpresa.crearDepartamento(nombreDepartamento, codigoDepartamento, gerenteAsociado, empleadosAsociado, proyectoAsociado, tecnicoAsociado);
+    }
+    @Override
+    public boolean eliminarDepartamento(String codigoDepartamento) {
+        return sistemaGestionEmpresa.eliminarDepartamento(codigoDepartamento);
+    }
+    @Override
+    public boolean actualizarDepartamento(String odigoDepartamento) {
+        return sistemaGestionEmpresa.actualizarDepartamento(codigoDepartamento);
+    }
     
 }
