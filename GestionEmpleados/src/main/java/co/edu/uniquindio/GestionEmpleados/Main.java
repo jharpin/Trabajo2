@@ -25,11 +25,13 @@ public class Main {
         modelFactory.crearGerente("manu", "mnñ", null, null);
         modelFactory.eliminarGerente("6025");
         modelFactory.actualizarGerente("sans","6868",null,null);
+
+        ///ejercicio propio1
         modelFactory.agregarProyectoAsociadaGerente("mnñ");
         /// se inicializa crud tecnico
         modelFactory.crearTecnico("Franco", "456", null, null, null);
-        modelFactory.actualizarTecnico("Romario", "422", null, null, "carpintero");
-        modelFactory.eliminarTecnico("456");
+        modelFactory.actualizarTecnico("Romario", "6025", null, null, "carpintero");
+        modelFactory.eliminarTecnico("5105");
         modelFactory.obtenerTecnico("456");
 
         /// se inicializa crud departamento
@@ -37,7 +39,7 @@ public class Main {
         modelFactory.eliminarDepartamento("6060");
         modelFactory.actualizarDepartamento("comida","2020","3030");
         modelFactory.mostrarInfoEmpresa();
-        ///segundo ejercicio propio1
+        ///ejercicio propio2
         modelFactory.listarGerentesYProyectos();
     }
     }
