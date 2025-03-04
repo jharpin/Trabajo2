@@ -183,6 +183,18 @@ public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices, IProye
     public boolean crearTecnico(String nombre, String id, Proyecto proyectoAsociado, Departamento departamentoAsociado, String especialidad) {
         return sistemaGestionEmpresa.crearTecnico(nombre, id, proyectoAsociado, departamentoAsociado, especialidad);
     }
+    @Override
+    public boolean actualizarTecnico(String nombre, String id, Proyecto proyectoAsociado, Departamento departamentoAsociado, String especialidad) {
+        return sistemaGestionEmpresa.actualizarTecnico(nombre, id, proyectoAsociado, departamentoAsociado, especialidad);
+    }
+    @Override
+    public boolean eliminarTecnico(String id) {
+        return sistemaGestionEmpresa.eliminarTecnico(id);
+    }
+    @Override
+    public Tecnico obtenerTecnico(String id) {
+        return sistemaGestionEmpresa.obtenerTecnico(id);
+    }
 
     
 }

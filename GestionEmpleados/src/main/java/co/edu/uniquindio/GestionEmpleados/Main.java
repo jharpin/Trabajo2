@@ -19,7 +19,10 @@ public class Main {
         modelFactory.actualizarGerente(null, null, null, null, null);
         modelFactory.eliminarGerente(null);
         modelFactory.obtenerGerente(null);
-        modelFactory.crearTecnico(null, null, null, null, null);
+        modelFactory.crearTecnico("Franco", "456", null, null, null);
+        modelFactory.actualizarTecnico("Romario", "422", null, null, null);
+        modelFactory.eliminarTecnico("456");
+        modelFactory.obtenerTecnico("456");
     }
 
 

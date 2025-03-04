@@ -243,4 +243,30 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
         }
         return false;
     }
+    @Override
+    public boolean actualizarTecnico(String nombre, String id, Proyecto proyectoAsociado, Departamento departamentoAsociado, String especialidad) {
+        Tecnico tecnico = obtenerTecnico(id);
+        if (tecnico != null) {
+            tecnico.setId(id);
+            tecnico.setNombre(nombre);
+            tecnico.setProyectoAsociado(proyectoAsociado);
+            tecnico.setDepartamentoAsociado(departamentoAsociado);
+            tecnico.setEspecialidad(especialidad);
+            return true;
+        }
+        return false;
+    }
+    @Override
+    public boolean eliminarTecnico(String id) {
+        return tecnicos.removeIf(tecnico -> tecnico.getId().equals(id));
+    }
+    @Override
+    public Tecnico obtenerTecnico(String id) {
+        for (Tecnico tecnico : tecnicos) {
+            if (tecnico.getId().equals(id)) {
+                return tecnico;
+            }
+        }
+        return null;
+    }
 }
