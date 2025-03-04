@@ -2,7 +2,7 @@ package co.edu.uniquindio.GestionEmpleados.model;
 import co.edu.uniquindio.GestionEmpleados.services.*;
 
 import java.util.ArrayList;
-public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServices,IProyectoCrud,IGerenteCrud {
+public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServices,IProyectoCrud,IGerenteCrud, ITecnicoCrud {
     private ArrayList<Empleado> Empleados;
     private ArrayList<Tecnico> tecnicos;
     private ArrayList<Gerente> gerentes;
@@ -241,6 +241,42 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
         for (Gerente gerente : gerentes) {
             if (gerente.getId().equals(id)) {
                 return gerente;
+            }
+        }
+        return null;
+    }
+    @Override
+    public boolean crearTecnico(String nombre, String id, Proyecto proyectoAsociado, Departamento departamentoAsociado, String especialidad) {
+        Tecnico tecnicoExistente = obtenerTecnico(id);
+        if (tecnicoExistente == null) {
+            Tecnico tecnico = new Tecnico(nombre, id, proyectoAsociado, departamentoAsociado, especialidad);
+            tecnicos.add(tecnico);
+            return true;
+        }
+        return false;
+    }
+    @Override
+    public boolean actualizarTecnico(String nombre, String id, Proyecto proyectoAsociado, Departamento departamentoAsociado, String especialidad) {
+        Tecnico tecnico = obtenerTecnico(id);
+        if (tecnico != null) {
+            tecnico.setId(id);
+            tecnico.setNombre(nombre);
+            tecnico.setProyectoAsociado(proyectoAsociado);
+            tecnico.setDepartamentoAsociado(departamentoAsociado);
+            tecnico.setEspecialidad(especialidad);
+            return true;
+        }
+        return false;
+    }
+    @Override
+    public boolean eliminarTecnico(String id) {
+        return tecnicos.removeIf(tecnico -> tecnico.getId().equals(id));
+    }
+    @Override
+    public Tecnico obtenerTecnico(String id) {
+        for (Tecnico tecnico : tecnicos) {
+            if (tecnico.getId().equals(id)) {
+                return tecnico;
             }
         }
         return null;
