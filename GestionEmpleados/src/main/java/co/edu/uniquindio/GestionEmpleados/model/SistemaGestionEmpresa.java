@@ -264,7 +264,15 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
         return false;
     }
 
-    
+    @Override
+    public Departamento ObtenerDepartamento(String codigoDepartamento) {
+        for (Departamento departamento : departamentos) {
+            if (departamento.getCodigoDepartamento().equals(codigoDepartamento)) {
+                return departamento;
+            }
+        }
+        return null;
+    }
 
     @Override
     public boolean eliminarDepartamento(String codigoDepartamento) {
