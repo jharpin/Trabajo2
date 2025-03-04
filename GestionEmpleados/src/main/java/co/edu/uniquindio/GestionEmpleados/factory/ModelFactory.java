@@ -123,7 +123,6 @@ public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices, IProye
         sistemaGestionEmpresa.getEmpleados().add(empleado2);
         sistemaGestionEmpresa.getEmpleados().add(empleado3);
         sistemaGestionEmpresa.getEmpleados().add(empleado4);
-        sistemaGestionEmpresa.getEmpleados().add(empleado4);
         sistemaGestionEmpresa.getTecnicos().add(tecnico1);
         sistemaGestionEmpresa.getTecnicos().add(tecnico2);
         sistemaGestionEmpresa.getTecnicos().add(tecnico3);
@@ -148,6 +147,16 @@ public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices, IProye
     @Override
     public boolean eliminarEmpleado(String id) {
         return sistemaGestionEmpresa.eliminarEmpleado(id);
+    }
+
+    @Override
+    public boolean ActualizarEmpleado(String id, String nombre, Proyecto proyectoAsociado) {
+        return sistemaGestionEmpresa.ActualizarEmpleado(id, nombre,proyectoAsociado);
+    }
+
+    @Override
+    public Empleado obtenerEmpleado(String id) {
+        return sistemaGestionEmpresa.obtenerEmpleado(id);
     }
 
     @Override

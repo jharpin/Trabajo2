@@ -6,8 +6,8 @@ import co.edu.uniquindio.GestionEmpleados.model.Proyecto;
 public interface IGerenteCrud {
     boolean crearGerente(String nombre, String id, 
     Proyecto proyectoAsociado,Departamento departamentoAsociado);
+    boolean eliminarGerente(String id);
     boolean actualizarGerente(String nombre, String id, Proyecto proyectoAsociado,
      Departamento departamentoAsociado);
-    boolean eliminarGerente(String id);
     Gerente obtenerGerente(String id);
 }

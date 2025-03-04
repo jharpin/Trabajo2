@@ -12,8 +12,10 @@ public class Main {
         /// se inicializa crud proyecto
         modelFactory.mostrarInfoEmpresa();
         /// se inicializa crud empleado
-        modelFactory.eliminarEmpleado("1011");
         modelFactory.crearEmpleado("vega2","450",null);
+        modelFactory.eliminarEmpleado("1011");
+        modelFactory.ActualizarEmpleado("5105","pepito",null);
+
         //
         modelFactory.eliminarProyecto("3746");
         modelFactory.modificarProyecto("y878");

@@ -62,36 +62,41 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
     /// CRUD EMPLEADO
     @Override
     public boolean crearEmpleado(String nombre, String id, Proyecto proyectoAsociado) {
-        Empleado nuevoEmpleado = new Empleado();
-        nuevoEmpleado.setNombre(nombre);
-        nuevoEmpleado.setId(id);
-        nuevoEmpleado.setProyectoAsociado(proyectoAsociado);
-        if (Empleados == null) {
-            Empleados = new ArrayList<>();
+        Empleado nuevoEmpleado = obtenerEmpleado(id);
+        if (nuevoEmpleado == null) {
+            Empleado empleado = new Empleado(nombre, id, proyectoAsociado);
+            Empleados.add(empleado);
+            return true;
         }
-        Empleados.add(nuevoEmpleado);
         return true;
     }
 
     @Override
     public boolean eliminarEmpleado(String id) {
-        //  Verificar que la lista no sea null
-        if (Empleados == null || Empleados.isEmpty()) {
-            System.out.println(" No hay empleados registrados.");
-            return false;
-        }
+        return Empleados.removeIf(empleado -> empleado.getId().equals(id));
+    }
 
-        //  Buscar el empleado por ID
-        for (Empleado empleado : Empleados) {
-            if (empleado.getId().equals(id)) {
-                Empleados.remove(empleado);
-                System.out.println(" Empleado con ID " + id + " eliminado correctamente.");
-                return true;
-            }
-        }
 
-        System.out.println(" No se encontró un empleado con ID " + id);
+    @Override
+    public boolean ActualizarEmpleado(String id, String nombre, Proyecto proyectoAsociado) {
+        Empleado empleado = obtenerEmpleado(id);
+        if (empleado != null) {
+            empleado.setId(id);
+            empleado.setNombre(nombre);
+            empleado.setProyectoAsociado(proyectoAsociado);
+            return true;
+        }
         return false;
+    }
+
+    @Override
+    public Empleado obtenerEmpleado(String id) {
+            for (Empleado empleado : Empleados) {
+                if (empleado.getId().equals(id)) {
+                    return empleado;
+                }
+            }
+            return null;
     }
 
     /// CRUD Proyecto
