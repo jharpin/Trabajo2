@@ -3,7 +3,7 @@ package co.edu.uniquindio.GestionEmpleados.factory;
 import co.edu.uniquindio.GestionEmpleados.model.*;
 import co.edu.uniquindio.GestionEmpleados.services.*;
 
-public class ModelFactory implements IEmpleadoCrud,ImodelFactoryServices, IProyectoCrud,IGerenteCrud, ITecnicoCrud,IDepartamentoCrud{
+public class ModelFactory implements ImodelFactoryServices{
     /// inicializacion de los objetos
     private static ModelFactory modelFactory;
     private SistemaGestionEmpresa  sistemaGestionEmpresa;

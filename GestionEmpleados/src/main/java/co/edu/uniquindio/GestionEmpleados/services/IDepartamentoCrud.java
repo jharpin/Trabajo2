@@ -1,6 +1,5 @@
 package co.edu.uniquindio.GestionEmpleados.services;
 
-import co.edu.uniquindio.GestionEmpleados.model.Empleado;
 import co.edu.uniquindio.GestionEmpleados.model.Gerente;
 import co.edu.uniquindio.GestionEmpleados.model.Proyecto;
 import co.edu.uniquindio.GestionEmpleados.model.Tecnico;
