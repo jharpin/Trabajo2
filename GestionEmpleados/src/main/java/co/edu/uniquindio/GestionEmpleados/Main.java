@@ -4,15 +4,11 @@ import co.edu.uniquindio.GestionEmpleados.model.*;
 public class Main {
     public static void main(String[] args) {
         ModelFactory modelFactory = ModelFactory.getInstance();
-        mostrarEmpleado3vocales(modelFactory);
         crudEmpleado(modelFactory);
+        mostrarEmpleado3vocales(modelFactory);
         modelFactory.mostrarInfoEmpresa();
 
     }
-    private static void mostrarEmpleado3vocales(ModelFactory modelFactory) {
-        modelFactory.buscarPropietarioVocales();
-    }
-
     private static void crudEmpleado(ModelFactory modelFactory) {
         crearEmpleado(modelFactory);
         eliminarEmpleado(modelFactory);
@@ -38,7 +34,9 @@ public class Main {
             System.out.println("Empleado no encontrado.");
         }
     }
-
+    private static void mostrarEmpleado3vocales(ModelFactory modelFactory) {
+        modelFactory.buscarPropietarioVocales();
+    }
     }
 
 

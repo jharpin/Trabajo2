@@ -382,7 +382,7 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
     public boolean buscarPropietarioVocales() {
         System.out.println("\n📌 Empleados con más de 3 vocales en su nombre:");
         for (Empleado empleado : getEmpleados()) {
-            if (contarVocales(empleado.getNombre()) > 3) {
+            if (contarVocales(empleado.getNombre()) < 3) {
                 System.out.println("   - " + empleado.getNombre() + " (ID: " + empleado.getId() + ")");
             }
         }
