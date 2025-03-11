@@ -7,7 +7,7 @@ public class Main {
         crudEmpleado(modelFactory);
         mostrarEmpleado3vocales(modelFactory);
         modelFactory.mostrarInfoEmpresa();
-
+        mostrarListaEmpleados(modelFactory);
     }
     private static void crudEmpleado(ModelFactory modelFactory) {
         crearEmpleado(modelFactory);
@@ -36,6 +36,9 @@ public class Main {
     }
     private static void mostrarEmpleado3vocales(ModelFactory modelFactory) {
         modelFactory.buscarPropietarioVocales();
+    }
+    private static void mostrarListaEmpleados(ModelFactory modelFactory) {
+        modelFactory.mostrarListaEmpleados();
     }
     }
 

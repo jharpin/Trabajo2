@@ -260,4 +260,9 @@ public class ModelFactory implements ImodelFactoryServices{
         return sistemaGestionEmpresa.buscarPropietarioVocales();
     }
 
+    @Override
+    public boolean mostrarListaEmpleados() {
+        return sistemaGestionEmpresa.mostrarListaEmpleados();
+    }
+
 }

@@ -14,4 +14,6 @@ public interface ImodelFactoryServices extends IEmpleadoCrud,
     boolean tecnicoPerteneceProyecto();
 
     boolean buscarPropietarioVocales();
+
+    boolean mostrarListaEmpleados();
 }

@@ -1,7 +1,9 @@
 package co.edu.uniquindio.GestionEmpleados.model;
 import co.edu.uniquindio.GestionEmpleados.services.*;
-
+import java.util.Collection;
 import java.util.ArrayList;
+import java.util.Collections;
+
 public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServices,IProyectoCrud,IGerenteCrud, ITecnicoCrud,IDepartamentoCrud {
     private ArrayList<Empleado> Empleados;
     private ArrayList<Tecnico> tecnicos;
@@ -408,6 +410,15 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
             }
         }
         return contador;
+    }
+    @Override
+    public boolean mostrarListaEmpleados() {
+        Collections.reverse(getEmpleados());
+        System.out.println("\n Lista de empleados:");
+        for(Empleado empleado : getEmpleados()){
+            System.out.println(empleado);
+        }
+        return false;
     }
 }
 
