@@ -33,6 +33,10 @@ public class Empleado implements IContribuyente {
     public void setProyectoAsociado(Proyecto proyectoAsociado){
         this.proyectoAsociado = proyectoAsociado;
     }
+    @Override
+    public String toString() {
+        return "Empleado{id='" + id + "', nombre='" + nombre + "}";
+    }
 
     @Override
     public String contribuir() {

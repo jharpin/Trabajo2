@@ -8,7 +8,9 @@ public class ModelFactory implements ImodelFactoryServices{
     private static ModelFactory modelFactory;
     private SistemaGestionEmpresa  sistemaGestionEmpresa;
 
-    private ModelFactory(){inicializarDatos();}
+    private ModelFactory(){
+        inicializarDatos();
+    }
     /// si model factory es nulo crea una nueva instancia
     public static ModelFactory getInstance(){
         if (modelFactory == null){
