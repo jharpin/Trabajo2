@@ -4,9 +4,15 @@ import co.edu.uniquindio.GestionEmpleados.model.*;
 public class Main {
     public static void main(String[] args) {
         ModelFactory modelFactory = ModelFactory.getInstance();
+        mostrarEmpleado3vocales(modelFactory);
         crudEmpleado(modelFactory);
         modelFactory.mostrarInfoEmpresa();
+
     }
+    private static void mostrarEmpleado3vocales(ModelFactory modelFactory) {
+        modelFactory.buscarPropietarioVocales();
+    }
+
     private static void crudEmpleado(ModelFactory modelFactory) {
         crearEmpleado(modelFactory);
         eliminarEmpleado(modelFactory);
@@ -15,7 +21,7 @@ public class Main {
 
     }
     private static void crearEmpleado(ModelFactory modelFactory) {
-        modelFactory.crearEmpleado("juan","mnb",null);
+        modelFactory.crearEmpleado("pepe","mnb",null);
     }
     private static void eliminarEmpleado(ModelFactory modelFactory) {
         modelFactory.eliminarEmpleado("1011");

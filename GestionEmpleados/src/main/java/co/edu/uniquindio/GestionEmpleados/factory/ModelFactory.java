@@ -255,4 +255,9 @@ public class ModelFactory implements ImodelFactoryServices{
         return sistemaGestionEmpresa.tecnicoPerteneceProyecto();
     }
 
+    @Override
+    public boolean buscarPropietarioVocales() {
+        return sistemaGestionEmpresa.buscarPropietarioVocales();
+    }
+
 }

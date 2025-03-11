@@ -378,6 +378,37 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
         return false;
     }
 
+    @Override
+    public boolean buscarPropietarioVocales() {
+        System.out.println("\n📌 Empleados con más de 3 vocales en su nombre:");
+        for (Empleado empleado : getEmpleados()) {
+            if (contarVocales(empleado.getNombre()) > 3) {
+                System.out.println("   - " + empleado.getNombre() + " (ID: " + empleado.getId() + ")");
+            }
+        }
+        return false;
+    }
+    private int contarVocales(String nombre) {
+        int contador = 0;
+        String vocales = "aeiou";
+
+        // Convertir el nombre a minúsculas para hacer la comparación uniforme
+        nombre = nombre.toLowerCase();
+
+        // Recorrer el nombre y verificar si cada letra es una vocal
+        for (int i = 0; i < nombre.length(); i++) {
+            char letra = nombre.charAt(i);
+
+            // Recorrer las vocales y comparar una por una
+            for (int j = 0; j < vocales.length(); j++) {
+                if (letra == vocales.charAt(j)) {
+                    contador++;
+                    break; // Salir del loop cuando encuentra una vocal
+                }
+            }
+        }
+        return contador;
+    }
 }
 
 
