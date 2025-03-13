@@ -50,23 +50,27 @@ public class ModelFactory implements ImodelFactoryServices{
         departamento4.setNombreDepartamento("General");
         departamento4.setCodigoDepartamento("6060");
         /// datos empleado
-        Empleado empleado1 = new Empleado();
-        empleado1.setNombre("Fernando");
-        empleado1.setId("1011");
-        empleado1.setProyectoAsociado(proyecto1);
-        Empleado empleado2 = new Empleado();
-        empleado2.setNombre("John");
-        empleado2.setId("5105");
-        empleado2.setProyectoAsociado(proyecto2);
-        Empleado empleado3 = new Empleado();
-        empleado3.setNombre("Alexis");
-        empleado3.setId("6025");
-        empleado3.setProyectoAsociado(proyecto3);
-        Empleado empleado4 = new Empleado();
-        empleado4.setNombre("Ricardo");
-        empleado4.setId("6868");
-        /// datos tecnico
-        empleado4.setProyectoAsociado(proyecto4);
+        Empleado empleado1 = Empleado.builder()
+                .setNombre("Fernando")
+                .setId("1011")
+                .setProyecto(proyecto1)
+                .build();
+        Empleado empleado2=Empleado.builder()
+                .setNombre("esteban")
+                .setId("poiu")
+                .setProyecto(proyecto2)
+                .build();
+        Empleado empleado3 = Empleado.builder()
+                .setNombre("jeslin")
+                .setId("1012")
+                .setProyecto(proyecto3)
+                .build();
+        Empleado empleado4 =  Empleado.builder()
+                .setNombre("carmona")
+                .setId("1013")
+                .setProyecto(proyecto4)
+                .build();
+
         Tecnico tecnico1= new Tecnico();
         tecnico1.setNombre("Juan");
         tecnico1.setId("1011"); 
@@ -140,11 +144,12 @@ public class ModelFactory implements ImodelFactoryServices{
        
     }
 
-    /// CRUD EMPLEADOS
     @Override
-    public boolean crearEmpleado(String nombre, String id, Proyecto proyectoAsociado) {
-        return sistemaGestionEmpresa.crearEmpleado(nombre,id,proyectoAsociado);
+    public boolean crearEmpleado(EmpleadoBuilder empleadoBuilder) {
+        return sistemaGestionEmpresa.crearEmpleado(empleadoBuilder);
     }
+
+    /// CRUD EMPLEADOS
 
     @Override
     public boolean eliminarEmpleado(String id) {

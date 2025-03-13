@@ -17,13 +17,13 @@ public class Main {
 
     }
     private static void crearEmpleado(ModelFactory modelFactory) {
-        modelFactory.crearEmpleado("pepe","mnb",null);
+        modelFactory.crearEmpleado(Empleado.builder().setId("dg").setProyecto(modelFactory.obtenerProyecto("3746")));
     }
     private static void eliminarEmpleado(ModelFactory modelFactory) {
         modelFactory.eliminarEmpleado("1011");
     }
     private static void actualizarEmpleado(ModelFactory modelFactory) {
-        modelFactory.ActualizarEmpleado("mnb","vega",null);
+        modelFactory.ActualizarEmpleado("dfg","vega",null);
     }
     private static void obtenerEmpleado(ModelFactory modelFactory) {
         Empleado empleado = modelFactory.obtenerEmpleado("mnb"); // Captura el empleado obtenido

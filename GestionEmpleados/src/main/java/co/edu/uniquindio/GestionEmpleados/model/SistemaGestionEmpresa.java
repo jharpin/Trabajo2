@@ -1,10 +1,10 @@
 package co.edu.uniquindio.GestionEmpleados.model;
 import co.edu.uniquindio.GestionEmpleados.services.*;
-import java.util.Collection;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServices,IProyectoCrud,IGerenteCrud, ITecnicoCrud,IDepartamentoCrud {
+public class SistemaGestionEmpresa implements ImodelFactoryServices,IProyectoCrud,IGerenteCrud, ITecnicoCrud,IDepartamentoCrud {
     private ArrayList<Empleado> Empleados;
     private ArrayList<Tecnico> tecnicos;
     private ArrayList<Gerente> gerentes;
@@ -61,16 +61,16 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
         this.proyectos = proyectos;
     }
 
-    /// CRUD EMPLEADO
+
     @Override
-    public boolean crearEmpleado(String nombre, String id, Proyecto proyectoAsociado) {
-        Empleado nuevoEmpleado = obtenerEmpleado(id);
-        if (nuevoEmpleado == null) {
-            Empleado empleado = new Empleado(nombre, id, proyectoAsociado);
-            Empleados.add(empleado);
+    public boolean crearEmpleado(EmpleadoBuilder NuevoEmpleado) {
+        System.out.println("Creando Empleado");
+        Empleado nuevoEmpleado=NuevoEmpleado.build();
+        if(obtenerEmpleado(nuevoEmpleado.getId())==null){
+            Empleados.add(nuevoEmpleado);
             return true;
         }
-        return true;
+        return false;
     }
 
     @Override
@@ -392,7 +392,7 @@ public class SistemaGestionEmpresa implements IEmpleadoCrud, ImodelFactoryServic
     }
     private int contarVocales(String nombre) {
         int contador = 0;
-        String vocales = "aeiou";
+        String vocales = "sebas";
 
         // Convertir el nombre a minúsculas para hacer la comparación uniforme
         nombre = nombre.toLowerCase();

@@ -6,14 +6,12 @@ public class Empleado implements IContribuyente {
     private String nombre;
     private String id;
     private Proyecto proyectoAsociado;
-    public Empleado (String nombre,
-                     String id,
-                     Proyecto proyectoAsociado) {
+    public Empleado() {}
+    Empleado(String nombre, String id,
+             Proyecto proyectoAsociado) {
         this.nombre = nombre;
         this.id = id;
         this.proyectoAsociado = proyectoAsociado;
-    }
-    public Empleado(){
     }
     public String getNombre(){
         return nombre;
@@ -42,4 +40,8 @@ public class Empleado implements IContribuyente {
     public String contribuir() {
         return "el empleado ha contribuido con lo necesario";
     }
+    public static EmpleadoBuilder builder(){
+        return new EmpleadoBuilder();
+    }
+
 }
